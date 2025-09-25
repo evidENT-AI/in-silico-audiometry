@@ -1,0 +1,71 @@
+# Ultra-minimal test for validation
+simulation:
+  name: "Mini Test - Framework Validation"
+  n_listeners: 2
+  n_repeats: 1  # Single test only
+  random_seed: 42
+  parallel_jobs: 1
+
+outcome_measures:
+  efficiency: [trial_count]
+  accuracy: [absolute_error]
+  reliability: [test_retest_diff]
+
+listeners:
+  profiles:
+    normal_hearing:
+      proportion: 1.0
+      threshold_range: [10, 20]
+      shape: "flat"
+
+  psychometric:
+    slope_range: [8, 10]
+    slope_distribution: "normal"
+    slope_mean: 8
+    slope_std: 1
+    false_positive_range: [0.02, 0.05]
+    false_positive_distribution: "uniform"
+    false_negative_range: [0.02, 0.05]
+    false_negative_distribution: "uniform"
+    attention_variability: false
+    fatigue_effects: false
+
+frequencies: [250, 500, 1000, 2000, 4000, 8000]  # All standard frequencies required
+
+procedures:
+  mhw:
+    name: "mHW"
+    starting_level: 40
+    step_size_down: 10
+    step_size_up: 5
+    threshold_criterion: 0.5
+    max_reversals: 4
+    max_trials_per_freq: 8
+    ascending_phase_required: true
+
+  bayesian:
+    name: "Bayesian"
+    prior_type: "uniform"
+    prior_range: [-10, 80]
+    convergence_threshold: 10.0  # Very relaxed
+    max_trials_per_freq: 10
+    active_learning: true
+    uncertainty_quantification: true
+
+analysis:
+  alpha_level: 0.05
+  effect_size_threshold: 0.5
+  confidence_intervals: 0.95
+  multiple_comparison_correction: "bonferroni"
+
+visualization:
+  dpi: 72
+  figure_format: "png"
+  plots: []
+
+output:
+  save_individual_results: false
+  save_aggregate_stats: true
+  export_publication_tables: false
+  export_supplementary_data: false
+  timestamp_files: true

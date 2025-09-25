@@ -1,0 +1,131 @@
+# Comprehensive mHW vs Bayesian Simulation Configuration
+# Based on manuscript requirements and Stage 1 Registered Report protocol
+
+simulation:
+  name: "Full mHW vs Bayesian Comparison Study"
+  version: "1.0"
+  n_listeners: 200          # Minimum sample size for statistical power
+  n_repeats: 2             # Test-retest design for reliability assessment
+  random_seed: 42          # For reproducibility
+  parallel_jobs: 8         # Parallel processing
+
+# Primary outcome measures per manuscript
+outcome_measures:
+  efficiency:
+    - trial_count           # H1: N_Bayes < N_mHW
+    - test_duration
+    - convergence_trials
+  accuracy:
+    - absolute_error        # Target: ±5 dB HL success criterion
+    - bias_analysis
+    - frequency_accuracy
+  reliability:
+    - test_retest_diff      # H2: Better test-retest reliability
+    - repeatability_coeff
+    - intraclass_correlation
+
+# Diverse listener population simulation
+listeners:
+  # Audiogram profile types
+  profiles:
+    normal_hearing:
+      proportion: 0.25
+      threshold_range: [-10, 20]    # dB HL
+      shape: "flat"
+    age_related:
+      proportion: 0.35
+      threshold_range: [10, 120]
+      shape: "high_freq_sloping"
+      subtypes: 6
+    noise_induced:
+      proportion: 0.25
+      threshold_range: [15, 120]
+      shape: "4khz_notch"
+    mixed_loss:
+      proportion: 0.15
+      threshold_range: [20, 120]
+      shape: "conductive_sensorineural"
+
+  # Psychometric function parameters per manuscript equations
+  psychometric:
+    # Slope parameter (σ) - steepness of psychometric curve
+    slope_range: [3, 15]         # dB (steep to shallow functions)
+    slope_distribution: "normal"
+    slope_mean: 8
+    slope_std: 3
+
+    # False positive rate (α) - respond when not hearing
+    false_positive_range: [0.01, 0.15]  # 1-15% as per manuscript
+    false_positive_distribution: "uniform"
+
+    # False negative rate (β) - fail to respond when hearing
+    false_negative_range: [0.01, 0.15]   # 1-15% as per manuscript
+    false_negative_distribution: "uniform"
+
+    # Attention/consistency factors
+    attention_variability: true
+    fatigue_effects: false       # Keep simple for Stage 1
+
+# Testing frequencies (standard audiometric frequencies)
+frequencies: [250, 500, 1000, 2000, 4000, 8000]
+
+# Procedure configurations
+procedures:
+  mhw:
+    name: "Modified Hughson-Westlake (BSA 2018)"
+    starting_level: 40          # dB HL
+    step_size_down: 10          # dB decrements
+    step_size_up: 5             # dB increments
+    threshold_criterion: 0.5    # 50% response rate
+    max_reversals: 10
+    max_trials_per_freq: 20
+    ascending_phase_required: true
+
+  bayesian:
+    name: "Bayesian Pure-Tone Audiometry"
+    prior_type: "uniform"       # Start with no assumptions (like mHW)
+    prior_range: [-10, 120]     # dB HL range
+    convergence_threshold: 5.0  # Stop when uncertainty < 5 dB
+    max_trials_per_freq: 30
+    active_learning: true       # Optimize stimulus selection
+    uncertainty_quantification: true
+
+# Statistical analysis configuration
+analysis:
+  alpha_level: 0.05
+  effect_size_threshold: 0.5   # Cohen's d for practical significance
+  confidence_intervals: 0.95
+  multiple_comparison_correction: "bonferroni"
+
+  # Primary hypothesis tests
+  hypothesis_tests:
+    h1_efficiency:
+      test_type: "paired_t_test"
+      alternative: "less"       # N_Bayes < N_mHW
+      description: "Trial count comparison"
+    h2_reliability:
+      test_type: "paired_t_test"
+      alternative: "less"       # Better test-retest for Bayes
+      description: "Test-retest reliability comparison"
+
+# Visualization configuration
+visualization:
+  dpi: 300
+  figure_format: "png"
+  color_palette: "colorblind_friendly"
+
+  plots:
+    - efficiency_comparison
+    - accuracy_heatmaps
+    - reliability_scatter
+    - bland_altman
+    - parameter_sensitivity
+    - individual_progressions
+
+# Output configuration
+output:
+  save_individual_results: true
+  save_aggregate_stats: true
+  export_publication_tables: true
+  export_supplementary_data: true
+  timestamp_files: true

@@ -1,0 +1,21 @@
+simulation:
+  n_listeners: 100
+  n_repeats: 3
+  seed: 42
+
+listener:
+  phenotypes: ['normal', 'age_related', 'noise_induced']
+  false_positive_range: [0.01, 0.1]
+  false_negative_range: [0.01, 0.1]
+
+procedures:
+  mhw:
+    starting_level: 40
+    max_reversals: 10
+  bayesian:
+    prior: 'uniform'
+    convergence_threshold: 5.0
+
+analysis:
+  metrics: ['accuracy', 'trials', 'reliability']
+  comparison_tests: ['paired_t_test', 'wilcoxon']

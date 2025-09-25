@@ -1,0 +1,124 @@
+# Quick Test Configuration - Reduced parameters for validation
+# 3-minute test run to verify functionality
+
+simulation:
+  name: "Quick Test - mHW vs Bayesian Validation"
+  version: "1.0"
+  n_listeners: 6           # Very small for 3-min test
+  n_repeats: 2             # Keep test-retest design
+  random_seed: 42          # For reproducibility
+  parallel_jobs: 2         # Reduced parallel processes
+
+# Primary outcome measures per manuscript
+outcome_measures:
+  efficiency:
+    - trial_count
+    - test_duration
+    - convergence_trials
+  accuracy:
+    - absolute_error
+    - bias_analysis
+    - frequency_accuracy
+  reliability:
+    - test_retest_diff
+    - repeatability_coeff
+    - intraclass_correlation
+
+# Diverse listener population simulation (reduced sample)
+listeners:
+  # Audiogram profile types
+  profiles:
+    normal_hearing:
+      proportion: 0.3
+      threshold_range: [0, 15]
+      shape: "flat"
+    age_related:
+      proportion: 0.4
+      threshold_range: [10, 60]  # Reduced range
+      shape: "high_freq_sloping"
+      subtypes: 3               # Reduced subtypes
+    noise_induced:
+      proportion: 0.3
+      threshold_range: [15, 50]  # Reduced range
+      shape: "4khz_notch"
+
+  # Psychometric function parameters
+  psychometric:
+    # Slope parameter (σ)
+    slope_range: [5, 12]         # Narrowed range for speed
+    slope_distribution: "normal"
+    slope_mean: 8
+    slope_std: 2
+
+    # False positive rate (α)
+    false_positive_range: [0.02, 0.10]  # Narrowed range
+    false_positive_distribution: "uniform"
+
+    # False negative rate (β)
+    false_negative_range: [0.02, 0.10]   # Narrowed range
+    false_negative_distribution: "uniform"
+
+    # Attention/consistency factors
+    attention_variability: true
+    fatigue_effects: false
+
+# Testing frequencies (standard audiometric frequencies)
+frequencies: [250, 500, 1000, 2000, 4000, 8000]  # Keep all standard frequencies
+
+# Procedure configurations
+procedures:
+  mhw:
+    name: "Modified Hughson-Westlake (BSA 2018)"
+    starting_level: 40
+    step_size_down: 10
+    step_size_up: 5
+    threshold_criterion: 0.5
+    max_reversals: 6            # Further reduced for speed
+    max_trials_per_freq: 10     # Further reduced for speed
+    ascending_phase_required: true
+
+  bayesian:
+    name: "Bayesian Pure-Tone Audiometry"
+    prior_type: "uniform"
+    prior_range: [-10, 100]     # Narrowed range
+    convergence_threshold: 8.0  # More relaxed for speed
+    max_trials_per_freq: 12     # Further reduced for speed
+    active_learning: true
+    uncertainty_quantification: true
+
+# Statistical analysis configuration
+analysis:
+  alpha_level: 0.05
+  effect_size_threshold: 0.5
+  confidence_intervals: 0.95
+  multiple_comparison_correction: "bonferroni"
+
+  # Primary hypothesis tests
+  hypothesis_tests:
+    h1_efficiency:
+      test_type: "paired_t_test"
+      alternative: "less"
+      description: "Trial count comparison"
+    h2_reliability:
+      test_type: "paired_t_test"
+      alternative: "less"
+      description: "Test-retest reliability comparison"
+
+# Visualization configuration
+visualization:
+  dpi: 150                      # Reduced for speed
+  figure_format: "png"
+  color_palette: "colorblind_friendly"
+
+  plots:
+    - efficiency_comparison
+    - accuracy_heatmaps
+    - reliability_scatter
+
+# Output configuration
+output:
+  save_individual_results: false  # Skip for quick test
+  save_aggregate_stats: true
+  export_publication_tables: false # Skip for quick test
+  export_supplementary_data: false # Skip for quick test
+  timestamp_files: true

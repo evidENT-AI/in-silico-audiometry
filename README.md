@@ -6,18 +6,29 @@
 
 ## Overview
 
-This repository contains the computational framework for simulating and optimizing pure-tone audiometry procedures through in-silico experiments. We implement both conventional modified Hughson-Westlake (mHW) procedures and novel Bayesian inference methods to estimate hearing thresholds from simulated psychometric responses.
+This repository contains a comprehensive computational framework for simulating and optimizing pure-tone audiometry procedures through large-scale in-silico experiments. We implement both conventional modified Hughson-Westlake (mHW) procedures and novel Bayesian inference methods to estimate hearing thresholds from realistic psychometric response models.
 
-<!--This work is part of a Stage 1 Registered Report submitted to Royal Society Open Science, comparing automated audiometry approaches against conventional testing through both simulated and human participant validation.-->
+The framework supports research-grade simulations from small validation studies (10-100 listeners) to massive population-scale experiments (10,000+ listeners) with advanced visualization and statistical analysis capabilities.
 
 ## Key Features
 
-- **Psychometric Response Simulation**: Realistic modeling of human responses including false positives/negatives
-- **Multiple PTA Procedures**: 
-  - BSA-compliant modified Hughson-Westlake
-  - Bayesian adaptive testing with uncertainty quantification
-- **Comprehensive Analysis**: Test-retest reliability, convergence metrics, and efficiency comparisons
-- **Reproducible Research**: Full simulation pipeline with seed control for reproducibility
+- **🎧 Realistic Psychometric Modeling**: Sophisticated simulation of human hearing responses including false positives/negatives, attention variability, and diverse hearing loss profiles
+- **🔬 Multiple PTA Procedures**:
+  - BSA-compliant modified Hughson-Westlake (2018 guidelines)
+  - Bayesian adaptive testing with active learning and uncertainty quantification
+- **📊 Research-Grade Analysis**:
+  - Primary hypothesis testing (H1: Efficiency, H2: Reliability)
+  - Test-retest reliability analysis with Bland-Altman plots
+  - Statistical power analysis and effect size calculations
+- **📈 Advanced Visualization System**:
+  - Standard mode: Detailed plots for moderate studies (≤200 listeners)
+  - Large-scale mode: Aggregate visualizations for massive studies (1000+ listeners)
+  - Publication-ready figures (300 DPI) with clinical formatting
+- **⚡ High-Performance Computing**:
+  - Parallel processing with configurable worker pools
+  - Memory-efficient data handling for large datasets
+  - Scalable from 2 to 10,000+ simulated listeners
+- **🔬 Reproducible Research**: Full simulation pipeline with comprehensive seed control and parameter tracking
 
 ## Installation
 
@@ -38,7 +49,7 @@ cd bayes-audiometry-silico
 2. Create and activate the conda environment:
 ```bash
 conda env create -f environment.yml
-conda activate audiometry-ai
+conda activate bayes_pta
 ```
 
 3. Install the package in development mode:
@@ -80,98 +91,181 @@ comparison = compare_procedures(mhw_results, bayes_results, listener.true_thresh
 print(comparison.summary())
 ```
 
-### Running Full Simulation Study
+### Comprehensive Simulation Testing
+
+The framework includes extensive testing infrastructure in the `tests/` directory:
+
+#### Quick Validation Tests
 
 ```bash
-# Run main simulation with default parameters
-python scripts/run_simulation.py
+# Basic functionality test (2 listeners, ~30 seconds)
+cd tests/simple_sim
+python simple_sim.py
 
-# Custom configuration
-python scripts/run_simulation.py --config configs/custom_sim.yaml
-
-# Parallel execution for large-scale simulations
-python scripts/run_simulation.py --n-listeners 1000 --n-jobs 8
+# Framework validation test (2 listeners with full pipeline)
+cd tests/full_mhw_bayes_sim
+python full_mhw_bayes_sim.py --config configs/mini_test.yaml --viz standard
 ```
+
+#### Research-Grade Simulation Studies
+
+```bash
+cd tests/full_mhw_bayes_sim
+
+# Small study with detailed visualizations (6 listeners, ~3 minutes)
+python full_mhw_bayes_sim.py --config configs/test_config.yaml --viz standard
+
+# Full research study (200 listeners, ~15 minutes)
+python full_mhw_bayes_sim.py --config configs/simulation_config.yaml --viz standard
+
+# Large-scale study with optimized visualizations (1000+ listeners)
+python full_mhw_bayes_sim.py --config configs/simulation_config.yaml --viz large_scale
+
+# Maximum performance mode (no visualizations for 10,000+ listeners)
+python full_mhw_bayes_sim.py --config configs/simulation_config.yaml --viz none
+```
+
+#### Visualization Modes
+
+- **`--viz standard`** (default): Detailed plots including individual listener comparisons
+- **`--viz large_scale`**: Population-level heatmaps and statistical summaries
+- **`--viz none`**: No visualizations for maximum performance
+
+#### Configuration Files
+
+- **`mini_test.yaml`**: Ultra-minimal test (2 listeners, 1 repeat)
+- **`test_config.yaml`**: Quick validation (6 listeners, 2 repeats)
+- **`simulation_config.yaml`**: Full research study (200 listeners, 2 repeats)
 
 ## Project Structure
 
 ```
-bayes-audiometry-silico/
+in-silico-audiometry/
 ├── audiometry_ai/           # Main package
 │   ├── simulation/         # Listener models and response generation
-│   │   ├── listener.py
-│   │   ├── psychometric.py
-│   │   └── audiogram.py
+│   │   ├── hearing_level_gen.py
+│   │   └── response_model.py
 │   ├── procedures/         # PTA testing procedures
-│   │   ├── base.py
-│   │   ├── hughson_westlake.py
-│   │   └── bayesian.py
-│   ├── analysis/          # Analysis and visualization tools
-│   │   ├── metrics.py
-│   │   ├── plotting.py
-│   │   └── statistics.py
-│   └── utils/             # Utility functions
-├── configs/               # Configuration files
-│   ├── default.yaml
-│   └── experiments/
-├── data/                  # Data directory
-│   ├── raw/              # Raw simulation outputs
-│   ├── processed/        # Processed results
-│   └── figures/          # Generated figures
-├── notebooks/            # Jupyter notebooks
-│   ├── 01_psychometric_modeling.ipynb
-│   ├── 02_procedure_comparison.ipynb
-│   └── 03_results_analysis.ipynb
-├── scripts/              # Executable scripts
-│   ├── run_simulation.py
-│   └── reproduce_*.py
-├── tests/                # Unit tests
-├── docs/                 # Documentation
-├── environment.yml       # Conda environment
-├── requirements.txt      # Pip requirements
-├── setup.py             # Package setup
-└── README.md            # This file
+│   │   ├── bsa_mhw.py     # BSA-compliant modified Hughson-Westlake
+│   │   ├── basic_bayes.py # Bayesian adaptive testing
+│   │   └── expert_mhw.py  # Expert-level procedures
+│   ├── analysis/          # Analysis and metrics calculation
+│   │   ├── hearing_level_estimation.py
+│   │   └── hearing_level_est_mHW.py
+│   ├── visualization/     # Plotting and visualization tools
+│   │   ├── bayes_plots.py           # Bayesian-specific visualizations
+│   │   ├── hearing_level_visuals.py # Audiogram plotting functions
+│   │   └── simulation_plotting.py   # General simulation plots
+│   └── utils/             # Utility functions and constants
+│       └── defaults.py
+├── examples/             # Example scripts organized by type
+│   ├── basic/           # Basic mHW examples
+│   ├── bayes/          # Bayesian procedure examples
+│   └── expert/         # Expert procedure examples
+├── tests/               # Comprehensive testing framework
+│   ├── simple_sim/     # Basic functionality validation
+│   │   ├── simple_sim.py
+│   │   ├── results/    # Test output data
+│   │   └── viz/        # Test visualizations
+│   ├── full_mhw_bayes_sim/  # Research-grade simulation framework
+│   │   ├── full_mhw_bayes_sim.py  # Main simulation engine (1500+ lines)
+│   │   ├── configs/    # Simulation configuration files
+│   │   │   ├── mini_test.yaml        # Ultra-minimal test
+│   │   │   ├── test_config.yaml      # Quick validation
+│   │   │   └── simulation_config.yaml # Full research study
+│   │   ├── results/    # Simulation results with ground truth
+│   │   └── viz/        # Publication-quality visualizations
+│   └── tests_overview.md    # Detailed testing documentation
+├── configs/             # Configuration files
+│   └── default.yaml
+├── notebooks/          # Jupyter notebooks for analysis
+├── environment.yml     # Conda environment
+├── package-list.txt   # Pip package requirements
+├── setup.py          # Package setup
+├── CLAUDE.md        # Claude Code guidance
+└── README.md       # This file
 ```
 
 ## Configuration
 
-Simulations can be configured via YAML files. See `configs/default.yaml` for available options:
+Simulations are configured via YAML files in `tests/full_mhw_bayes_sim/configs/`. Each configuration defines the complete experimental setup:
+
+### Full Research Configuration (`simulation_config.yaml`)
 
 ```yaml
 simulation:
-  n_listeners: 100
-  n_repeats: 3
-  seed: 42
-  
-listener:
-  phenotypes: ['normal', 'age_related', 'noise_induced']
-  false_positive_range: [0.01, 0.1]
-  false_negative_range: [0.01, 0.1]
-  
+  name: "Full mHW vs Bayesian Comparison Study"
+  n_listeners: 200          # Sample size for statistical power
+  n_repeats: 2             # Test-retest design for reliability
+  random_seed: 42          # Reproducibility
+  parallel_jobs: 8         # Parallel processing
+
+# Diverse listener population simulation
+listeners:
+  profiles:
+    normal_hearing:         # 25% of population
+      proportion: 0.25
+      threshold_range: [-10, 20]
+      shape: "flat"
+    age_related:           # 35% of population
+      proportion: 0.35
+      threshold_range: [10, 120]
+      shape: "high_freq_sloping"
+    noise_induced:         # 25% of population
+      proportion: 0.25
+      threshold_range: [15, 120]
+      shape: "4khz_notch"
+    mixed_loss:           # 15% of population
+      proportion: 0.15
+      threshold_range: [20, 120]
+      shape: "conductive_sensorineural"
+
+  psychometric:
+    slope_range: [3, 15]         # Psychometric curve steepness
+    false_positive_range: [0.01, 0.15]
+    false_negative_range: [0.01, 0.15]
+
+# Primary outcome measures per manuscript
+outcome_measures:
+  efficiency: [trial_count, test_duration, convergence_trials]
+  accuracy: [absolute_error, bias_analysis, frequency_accuracy]
+  reliability: [test_retest_diff, repeatability_coeff, intraclass_correlation]
+
 procedures:
   mhw:
+    name: "Modified Hughson-Westlake (BSA 2018)"
     starting_level: 40
+    step_size_down: 10
+    step_size_up: 5
     max_reversals: 10
+    max_trials_per_freq: 20
+
   bayesian:
-    prior: 'uniform'
+    name: "Bayesian Pure-Tone Audiometry"
+    prior_type: "uniform"
+    prior_range: [-10, 120]
     convergence_threshold: 5.0
+    max_trials_per_freq: 30
+    active_learning: true
 ```
 
-## Testing
+## Results and Output
 
-Run the test suite:
+Each simulation generates comprehensive results:
 
-```bash
-# All tests
-pytest
+### Data Files
+- **`analysis_summary_TIMESTAMP.json`**: Primary hypothesis results and statistical tests
+- **`detailed_results_TIMESTAMP.json`**: Complete per-listener data with ground truth parameters
 
-# With coverage
-pytest --cov=audiometry_ai --cov-report=html
+### Visualizations (depends on `--viz` mode)
+- **Standard Mode**: Individual listener comparisons, detailed error analysis
+- **Large Scale Mode**: Population heatmaps, statistical summaries, efficiency distributions
 
-# Specific test modules
-pytest tests/test_simulation.py
-pytest tests/test_procedures.py
-```
+### Key Metrics Tracked
+- **Efficiency**: Trial counts, test duration, convergence analysis
+- **Accuracy**: Absolute errors, bias analysis, frequency-specific performance
+- **Reliability**: Test-retest differences, Bland-Altman analysis, intraclass correlations
+- **Ground Truth**: Complete listener models (thresholds, psychometric parameters, profile types)
 
 ## License
 
