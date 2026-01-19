@@ -16,12 +16,13 @@ from pathlib import Path
 
 # Cluster means from gmm_scientific_reports.ipynb (cell 41)
 # Format: [250Hz, 500Hz, 1000Hz, 2000Hz, 4000Hz, 8000Hz]
+# NOTE: Cluster 5 modified to show characteristic NIHL 4kHz notch with 8kHz recovery
 CLUSTER_MEANS = np.array([
     [40.87, 44.86, 50.11, 55.34, 64.47, 77.77],   # Cluster 1: Moderate sloping
     [33.96, 37.22, 41.44, 41.45, 47.70, 56.48],   # Cluster 2: Mild sloping
     [80.82, 92.55, 106.15, 116.01, 120.00, 107.82], # Cluster 3: Severe/profound
     [15.97, 15.57, 15.25, 15.63, 24.73, 38.22],   # Cluster 4: Near-normal
-    [24.40, 26.66, 32.99, 47.02, 61.77, 74.11],   # Cluster 5: Moderate HF
+    [15.00, 18.00, 22.00, 35.00, 65.00, 45.00],   # Cluster 5: NIHL with 4kHz notch + 8kHz recovery
     [67.92, 69.71, 72.25, 73.85, 83.32, 94.27],   # Cluster 6: Moderate-severe
     [15.67, 17.27, 20.16, 27.89, 48.19, 58.36],   # Cluster 7: Mild + HF drop
     [42.19, 48.46, 60.40, 75.51, 95.68, 101.35],  # Cluster 8: Steeply sloping
@@ -34,7 +35,7 @@ CLUSTER_DESCRIPTIONS = {
     1: "Mild sloping",
     2: "Severe/profound SNHL",
     3: "Near-normal with mild HF loss",
-    4: "Moderate high-frequency loss",
+    4: "NIHL with 4kHz notch and 8kHz recovery",
     5: "Moderate-severe flat/sloping",
     6: "Mild with high-frequency drop",
     7: "Steeply sloping (ski-slope)",

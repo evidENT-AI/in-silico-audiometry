@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "n_listeners": 2200,
+    "seed": 42,
+    "use_nhanes_priors": true,
+    "distribution_preset": "normal_majority",
+    "n_workers": 10,
+    "timestamp": "2026-01-19T22:44:55.405135",
+    "n_phenotypes": 9,
+    "phenotype_distribution": {
+      "moderate_sloping": 110,
+      "mild_sloping": 110,
+      "severe_profound": 44,
+      "near_normal_mild_hf": 220,
+      "moderate_high_freq": 110,
+      "moderate_severe": 66,
+      "mild_hf_drop": 220,
+      "ski_slope": 110,
+      "normal_hearing": 1210
+    },
+    "demographics_summary": {
+      "mean_age": 45.571363636363635,
+      "std_age": 18.140121227282243,
+      "male_pct": 0.4490909090909091,
+      "diabetes_pct": 0.10727272727272727,
+      "cv_risk_pct": 0.24545454545454545,
+      "noise_exposure_pct": 0.20545454545454545
+    }
+  },
+  "h1_efficiency": {
+    "bayes_mean_trials": 46.69772727272727,
+    "bayes_std_trials": 8.989286265437512,
+    "mhw_mean_trials": 74.48772727272727,
+    "mhw_std_trials": 7.02927865936999,
+    "mean_reduction": 27.79,
+    "reduction_pct": 37.308159367314936,
+    "t_statistic": 98.08877508024955,
+    "p_value": 0.0,
+    "cohens_d": 3.444038445503711,
+    "bayes_mean_error": 2.731825364073981,
+    "mhw_mean_error": 2.8950757575757575
+  },
+  "h2_reliability": {
+    "icc_bayes": 0.9856552210972763,
+    "icc_bayes_ci": [
+      0.9851606189856679,
+      0.9861327301627318
+    ],
+    "icc_mhw": 0.9745757423666424,
+    "icc_mhw_ci": [
+      0.9737029275211838,
+      0.9754163242128558
+    ],
+    "bayes_bias": -0.02938018938093747,
+    "mhw_bias": -0.0022727272727272726,
+    "bayes_loa": [
+      -8.229235493519777,
+      8.170475114757902
+    ],
+    "mhw_loa": [
+      -11.690104082078102,
+      11.685558627532648
+    ]
+  },
+  "h3_phenotype_matching": {
+    "matching_accuracy": 0.7954545454545454,
+    "cv_n_correct": 1750,
+    "cv_n_total": 2200,
+    "correlation": -0.5862925427411316,
+    "correlation_p_value": 2.689086945417321e-203,
+    "correlation_ci": [
+      -0.6130627550969698,
+      -0.5581775299671765
+    ]
+  },
+  "bayesian_analysis": {
+    "h1_bf10": Infinity,
+    "h1_bf_interpretation": "Extreme evidence for H1",
+    "h1_posterior_mean": 27.78778585832679,
+    "h1_posterior_hdi": [
+      27.208444632094675,
+      28.324358938457156
+    ],
+    "h1_prob_practical": 1.0,
+    "h1_practical_threshold": 5.0,
+    "h2_bf10": 1.39138129347462e+67,
+    "h2_bf_interpretation": "Extreme evidence for H1",
+    "h2_posterior_mean": 1.7869439165679797,
+    "h2_posterior_hdi": [
+      1.5462561339756498,
+      2.0184233847975728
+    ],
+    "h2_prob_practical": 1.0,
+    "h2_practical_threshold": 1.0,
+    "icc_bayes_bayesian": 0.992832468110664,
+    "icc_bayes_bayesian_hdi": [
+      0.9920724559106776,
+      0.9936513305733661
+    ],
+    "icc_bayes_prob_excellent": 1.0,
+    "icc_mhw_bayesian": 0.9872851374632712,
+    "icc_mhw_bayesian_hdi": [
+      0.9867839085242008,
+      0.9878167602335804
+    ],
+    "icc_mhw_prob_excellent": 1.0
+  }
+}

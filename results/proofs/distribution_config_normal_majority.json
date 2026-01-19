@@ -1,0 +1,26 @@
+{
+  "preset_name": "normal_majority",
+  "distribution": {
+    "moderate_sloping": 0.05,
+    "mild_sloping": 0.05,
+    "severe_profound": 0.02,
+    "near_normal_mild_hf": 0.1,
+    "moderate_high_freq": 0.05,
+    "moderate_severe": 0.03,
+    "mild_hf_drop": 0.1,
+    "ski_slope": 0.05,
+    "normal_hearing": 0.55
+  },
+  "n_total": 2200,
+  "counts": {
+    "moderate_sloping": 110,
+    "mild_sloping": 110,
+    "severe_profound": 44,
+    "near_normal_mild_hf": 220,
+    "moderate_high_freq": 110,
+    "moderate_severe": 66,
+    "mild_hf_drop": 220,
+    "ski_slope": 110,
+    "normal_hearing": 1210
+  }
+}

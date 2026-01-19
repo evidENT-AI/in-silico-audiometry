@@ -36,6 +36,51 @@ from audiometry_ai.simulation.phenotypes import (
     get_phenotype_names,
     FREQUENCIES,
 )
+
+# =============================================================================
+# DISTRIBUTION PRESETS
+# =============================================================================
+
+DISTRIBUTION_PRESETS = {
+    # Original RNENT clinical distribution
+    'rnent_clinical': {
+        'moderate_sloping': 0.11,
+        'mild_sloping': 0.08,
+        'severe_profound': 0.03,
+        'near_normal_mild_hf': 0.12,
+        'moderate_high_freq': 0.08,
+        'moderate_severe': 0.10,
+        'mild_hf_drop': 0.20,
+        'ski_slope': 0.15,
+        'normal_hearing': 0.13,
+    },
+
+    # Normal hearing majority (for healthy population screening)
+    'normal_majority': {
+        'moderate_sloping': 0.05,
+        'mild_sloping': 0.05,
+        'severe_profound': 0.02,
+        'near_normal_mild_hf': 0.10,
+        'moderate_high_freq': 0.05,
+        'moderate_severe': 0.03,
+        'mild_hf_drop': 0.10,
+        'ski_slope': 0.05,
+        'normal_hearing': 0.55,  # 55% normal hearing
+    },
+
+    # Balanced for method comparison
+    'balanced': {
+        'moderate_sloping': 0.11,
+        'mild_sloping': 0.11,
+        'severe_profound': 0.11,
+        'near_normal_mild_hf': 0.11,
+        'moderate_high_freq': 0.11,
+        'moderate_severe': 0.11,
+        'mild_hf_drop': 0.11,
+        'ski_slope': 0.11,
+        'normal_hearing': 0.12,
+    },
+}
 from audiometry_ai.simulation.response_model import HearingResponseModel
 from audiometry_ai.procedures.basic_bayes import BayesianPureToneAudiometry
 from audiometry_ai.analysis.reliability import (
@@ -64,6 +109,11 @@ class ListenerResult:
     category: str
     true_thresholds: Dict[int, float]
 
+    # Demographics
+    age: int
+    sex: str
+    covariates: Dict[str, bool]  # Risk factors: diabetes, cv_risk, noise_exposure, etc.
+
     # Bayesian results
     bayes_thresholds: Dict[int, float]
     bayes_uncertainties: Dict[int, float]
@@ -85,6 +135,147 @@ class ListenerResult:
     slope: float
     false_positive_rate: float
     false_negative_rate: float
+
+
+class DemographicGenerator:
+    """
+    Generate realistic demographics and risk factors for virtual listeners.
+
+    Based on NHANES prevalence data and clinical conditioning parameters
+    documented in docs/current_conditioning.md.
+
+    Risk factors generated:
+    - Diabetes (based on age-stratified NHANES prevalence)
+    - Cardiovascular risk (based on age and hypertension prevalence)
+    - Noise exposure (based on sex and occupation patterns)
+    - Tinnitus (based on age and hearing loss severity)
+    """
+
+    # Age distributions by phenotype category (mean, std)
+    AGE_BY_CATEGORY = {
+        'normal': (35, 15),        # Younger, broader distribution
+        'mild': (50, 15),          # Middle-aged
+        'presbycusis': (65, 12),   # Older adults
+        'noise_induced': (45, 12), # Working age
+        'severe': (55, 18),        # Broad distribution
+    }
+
+    # NHANES-derived diabetes prevalence by age group
+    # Source: CDC National Diabetes Statistics Report
+    DIABETES_PREVALENCE_BY_AGE = {
+        (18, 44): 0.04,   # 4%
+        (45, 64): 0.14,   # 14%
+        (65, 90): 0.22,   # 22%
+    }
+
+    # NHANES-derived hypertension/CV risk prevalence by age
+    CV_RISK_PREVALENCE_BY_AGE = {
+        (18, 44): 0.08,   # 8%
+        (45, 64): 0.35,   # 35%
+        (65, 90): 0.55,   # 55%
+    }
+
+    # Noise exposure prevalence (higher for males)
+    NOISE_EXPOSURE_PREVALENCE = {
+        'male': 0.25,     # 25% of males
+        'female': 0.10,   # 10% of females
+    }
+
+    def __init__(self, seed: int = 42):
+        self.rng = np.random.default_rng(seed)
+
+    def _get_age_based_prevalence(
+        self,
+        prevalence_dict: Dict[Tuple[int, int], float],
+        age: int
+    ) -> float:
+        """Get prevalence for a given age from age-stratified prevalence dict."""
+        for (age_min, age_max), prevalence in prevalence_dict.items():
+            if age_min <= age <= age_max:
+                return prevalence
+        return list(prevalence_dict.values())[-1]  # Default to oldest group
+
+    def generate(self, phenotype: str, category: str) -> Dict:
+        """
+        Generate demographics and risk factors for a listener.
+
+        Parameters
+        ----------
+        phenotype : str
+            The phenotype name (e.g., 'moderate_sloping')
+        category : str
+            The category (e.g., 'presbycusis', 'noise_induced', 'normal')
+
+        Returns
+        -------
+        dict
+            Demographics including age, sex, and risk factor covariates
+        """
+        # Get age distribution for category
+        mean_age, std_age = self.AGE_BY_CATEGORY.get(category, (50, 15))
+
+        # Sample age (clipped to 18-90)
+        age = int(np.clip(self.rng.normal(mean_age, std_age), 18, 90))
+
+        # Sex (roughly balanced, but slightly more females in audiometry clinics)
+        sex = self.rng.choice(['male', 'female'], p=[0.45, 0.55])
+
+        # Generate risk factors based on age and other demographics
+        covariates = self._generate_risk_factors(age, sex, category)
+
+        return {
+            'age': age,
+            'sex': sex,
+            'covariates': covariates,
+        }
+
+    def _generate_risk_factors(
+        self,
+        age: int,
+        sex: str,
+        category: str
+    ) -> Dict[str, bool]:
+        """
+        Generate risk factors based on demographics and phenotype category.
+
+        Uses NHANES-derived prevalence rates with category-specific adjustments.
+        """
+        covariates = {}
+
+        # Diabetes - age-stratified prevalence
+        diabetes_prev = self._get_age_based_prevalence(
+            self.DIABETES_PREVALENCE_BY_AGE, age
+        )
+        covariates['diabetes'] = self.rng.random() < diabetes_prev
+
+        # Cardiovascular risk - age-stratified prevalence
+        cv_prev = self._get_age_based_prevalence(
+            self.CV_RISK_PREVALENCE_BY_AGE, age
+        )
+        covariates['cardiovascular_risk'] = self.rng.random() < cv_prev
+
+        # Noise exposure - sex-based prevalence, higher for noise_induced category
+        noise_prev = self.NOISE_EXPOSURE_PREVALENCE.get(sex, 0.15)
+        if category == 'noise_induced':
+            noise_prev = 0.85  # 85% have noise exposure in this category
+        covariates['noise_exposure'] = self.rng.random() < noise_prev
+
+        # Tinnitus - more common with hearing loss and age
+        tinnitus_base = 0.10  # 10% baseline
+        if age > 60:
+            tinnitus_base += 0.10
+        if category in ['presbycusis', 'noise_induced', 'severe']:
+            tinnitus_base += 0.15
+        covariates['tinnitus'] = self.rng.random() < min(tinnitus_base, 0.50)
+
+        # Ototoxic medication - rare, slightly more common with age
+        ototox_prev = 0.02 if age < 60 else 0.05
+        covariates['ototoxic_medication'] = self.rng.random() < ototox_prev
+
+        # Meniere's disease - rare
+        covariates['menieres'] = self.rng.random() < 0.005  # 0.5%
+
+        return covariates
 
 
 def simulate_mhw_procedure(
@@ -131,12 +322,18 @@ def run_listener_simulation(
     phenotype: str,
     category: str,
     psych_params: Dict[str, float],
+    demographics: Dict[str, any],
     frequencies: List[int],
     seed: int,
-    use_nhanes_priors: bool = False
+    use_nhanes_priors: bool = True
 ) -> ListenerResult:
     """Run simulation for a single listener."""
     rng = np.random.default_rng(seed)
+
+    # Extract demographics and covariates
+    age = demographics.get('age', 50)
+    sex = demographics.get('sex', 'male')
+    covariates = demographics.get('covariates', {})
 
     # Create response model with listener's psychometric parameters
     # Note: HearingResponseModel uses guess_rate (FP) and lapse_rate (FN)
@@ -146,7 +343,11 @@ def run_listener_simulation(
         lapse_rate=psych_params['false_negative_rate']
     )
 
-    # Run Bayesian procedure
+    # Run Bayesian procedure with NHANES priors conditioned on demographics
+    # Use all three levels of conditioning:
+    #   Level 1: Age-sex stratification
+    #   Level 2: Risk factor adjustments (diabetes, CV, noise, etc.)
+    #   Level 3: Tympanometry (not included in simulation - clinical-only)
     bayes_procedure = BayesianPureToneAudiometry(
         hearing_profile_data=audiogram,
         response_model_params={
@@ -159,6 +360,9 @@ def run_listener_simulation(
         max_trials_per_freq=30,
         random_state=seed,
         use_nhanes_priors=use_nhanes_priors,
+        listener_age=age,
+        listener_sex=sex,
+        listener_covariates=covariates,
     )
 
     bayes_results = bayes_procedure.perform_test()
@@ -193,6 +397,9 @@ def run_listener_simulation(
         phenotype=phenotype,
         category=category,
         true_thresholds=audiogram,
+        age=age,
+        sex=sex,
+        covariates=covariates,
         bayes_thresholds=bayes_thresholds,
         bayes_uncertainties=bayes_uncertainties,
         bayes_trials_per_freq=bayes_trials_per_freq,
@@ -217,7 +424,7 @@ def _run_listener_simulation_wrapper(args: Tuple) -> ListenerResult:
     This wrapper unpacks arguments for use with ProcessPoolExecutor.
     """
     (listener_id, audiogram, phenotype, category, psych_params,
-     frequencies, seed, use_nhanes_priors) = args
+     demographics, frequencies, seed, use_nhanes_priors) = args
 
     return run_listener_simulation(
         listener_id=listener_id,
@@ -225,6 +432,7 @@ def _run_listener_simulation_wrapper(args: Tuple) -> ListenerResult:
         phenotype=phenotype,
         category=category,
         psych_params=psych_params,
+        demographics=demographics,
         frequencies=frequencies,
         seed=seed,
         use_nhanes_priors=use_nhanes_priors,
@@ -234,6 +442,7 @@ def _run_listener_simulation_wrapper(args: Tuple) -> ListenerResult:
 def run_parallel_simulations(
     population: List[Dict],
     psych_params_list: List[Dict],
+    demographics_list: List[Dict],
     frequencies: List[int],
     base_seed: int,
     use_nhanes_priors: bool,
@@ -251,6 +460,8 @@ def run_parallel_simulations(
         List of listener dictionaries with audiogram, phenotype, etc.
     psych_params_list : list of dict
         Psychometric parameters for each listener
+    demographics_list : list of dict
+        Demographics (age, sex) for each listener
     frequencies : list of int
         Test frequencies
     base_seed : int
@@ -281,11 +492,14 @@ def run_parallel_simulations(
             listener['phenotype'],
             listener['category'],
             psych_params,
+            demographics,
             frequencies,
             base_seed + session_offset + i,
             use_nhanes_priors,
         )
-        for i, (listener, psych_params) in enumerate(zip(population, psych_params_list))
+        for i, (listener, psych_params, demographics) in enumerate(
+            zip(population, psych_params_list, demographics_list)
+        )
     ]
 
     # Sequential execution for debugging or single worker
@@ -579,7 +793,8 @@ def run_simulation(
     n_listeners: int = 2200,
     seed: int = 42,
     output_dir: Path = None,
-    use_nhanes_priors: bool = False,
+    use_nhanes_priors: bool = True,
+    distribution_preset: str = 'normal_majority',
     n_workers: int = None,
     verbose: bool = True
 ) -> Dict:
@@ -595,7 +810,9 @@ def run_simulation(
     output_dir : Path
         Directory to save results
     use_nhanes_priors : bool
-        Whether to use NHANES priors for Bayesian procedure
+        Whether to use NHANES priors with full conditioning (Level 1-3)
+    distribution_preset : str
+        Distribution preset: 'normal_majority', 'rnent_clinical', or 'balanced'
     n_workers : int, optional
         Number of parallel workers. If None, uses all available cores.
         Set to 1 for sequential execution (useful for debugging).
@@ -621,12 +838,18 @@ def run_simulation(
     # Initialize generators
     phenotype_gen = PhenotypeGenerator()
     psych_gen = PsychometricParameterGenerator()
+    demo_gen = DemographicGenerator(seed=seed)
 
-    # Calculate listeners per phenotype (proportional to n_target)
-    total_target = sum(p.n_target for p in PHENOTYPE_DEFINITIONS.values())
+    # Get distribution preset
+    if distribution_preset not in DISTRIBUTION_PRESETS:
+        raise ValueError(f"Unknown distribution preset: {distribution_preset}. "
+                        f"Available: {list(DISTRIBUTION_PRESETS.keys())}")
+    distribution = DISTRIBUTION_PRESETS[distribution_preset]
+
+    # Calculate listeners per phenotype based on distribution preset
     n_per_phenotype = {
-        name: max(1, int(n_listeners * defn.n_target / total_target))
-        for name, defn in PHENOTYPE_DEFINITIONS.items()
+        name: max(1, int(n_listeners * proportion))
+        for name, proportion in distribution.items()
     }
 
     # Adjust to match exact total
@@ -641,12 +864,14 @@ def run_simulation(
         print(f"Stage 1 Simulation")
         print(f"==================")
         print(f"Total listeners: {n_listeners}")
+        print(f"Distribution preset: {distribution_preset}")
         print(f"Random seed: {seed}")
-        print(f"NHANES priors: {use_nhanes_priors}")
+        print(f"NHANES priors with full conditioning: {use_nhanes_priors}")
         print(f"Parallel workers: {n_workers} {'(sequential)' if n_workers == 1 else ''}")
         print(f"\nPhenotype distribution:")
         for name, n in n_per_phenotype.items():
-            print(f"  {name}: {n}")
+            pct = distribution.get(name, 0) * 100
+            print(f"  {name}: {n} ({pct:.0f}%)")
         print()
 
     # Generate population
@@ -657,12 +882,35 @@ def run_simulation(
     # Generate psychometric parameters
     psych_params_list = [psych_gen.generate(rng) for _ in population]
 
+    # Generate demographics (age, sex, risk factors) for each listener
+    demographics_list = [
+        demo_gen.generate(p['phenotype'], p['category'])
+        for p in population
+    ]
+
+    if verbose:
+        # Summarize demographics
+        ages = [d['age'] for d in demographics_list]
+        male_pct = sum(1 for d in demographics_list if d['sex'] == 'male') / len(demographics_list) * 100
+        diabetes_pct = sum(1 for d in demographics_list if d['covariates'].get('diabetes', False)) / len(demographics_list) * 100
+        cv_pct = sum(1 for d in demographics_list if d['covariates'].get('cardiovascular_risk', False)) / len(demographics_list) * 100
+        noise_pct = sum(1 for d in demographics_list if d['covariates'].get('noise_exposure', False)) / len(demographics_list) * 100
+
+        print(f"\nDemographic summary:")
+        print(f"  Age: {np.mean(ages):.1f} ± {np.std(ages):.1f} years (range: {min(ages)}-{max(ages)})")
+        print(f"  Male: {male_pct:.1f}%")
+        print(f"  Diabetes: {diabetes_pct:.1f}%")
+        print(f"  Cardiovascular risk: {cv_pct:.1f}%")
+        print(f"  Noise exposure: {noise_pct:.1f}%")
+        print()
+
     # Run test session 1 (parallel)
     if verbose:
-        print("\nRunning test session 1...")
+        print("Running test session 1...")
     test1_results = run_parallel_simulations(
         population=population,
         psych_params_list=psych_params_list,
+        demographics_list=demographics_list,
         frequencies=FREQUENCIES,
         base_seed=seed,
         use_nhanes_priors=use_nhanes_priors,
@@ -678,6 +926,7 @@ def run_simulation(
     test2_results = run_parallel_simulations(
         population=population,
         psych_params_list=psych_params_list,
+        demographics_list=demographics_list,
         frequencies=FREQUENCIES,
         base_seed=seed,
         use_nhanes_priors=use_nhanes_priors,
@@ -710,10 +959,19 @@ def run_simulation(
             'n_listeners': n_listeners,
             'seed': seed,
             'use_nhanes_priors': use_nhanes_priors,
+            'distribution_preset': distribution_preset,
             'n_workers': n_workers,
             'timestamp': datetime.now().isoformat(),
             'n_phenotypes': len(PHENOTYPE_DEFINITIONS),
             'phenotype_distribution': n_per_phenotype,
+            'demographics_summary': {
+                'mean_age': float(np.mean([d['age'] for d in demographics_list])),
+                'std_age': float(np.std([d['age'] for d in demographics_list])),
+                'male_pct': sum(1 for d in demographics_list if d['sex'] == 'male') / len(demographics_list),
+                'diabetes_pct': sum(1 for d in demographics_list if d['covariates'].get('diabetes', False)) / len(demographics_list),
+                'cv_risk_pct': sum(1 for d in demographics_list if d['covariates'].get('cardiovascular_risk', False)) / len(demographics_list),
+                'noise_exposure_pct': sum(1 for d in demographics_list if d['covariates'].get('noise_exposure', False)) / len(demographics_list),
+            },
         },
         'h1_efficiency': h1_stats,
         'h2_reliability': h2_stats,
@@ -830,8 +1088,17 @@ def main():
         help='Run mini simulation (50 listeners) for testing'
     )
     parser.add_argument(
-        '--nhanes', action='store_true',
-        help='Use NHANES priors'
+        '--nhanes', action='store_true', default=True,
+        help='Use NHANES priors with full conditioning (default: True)'
+    )
+    parser.add_argument(
+        '--no-nhanes', action='store_true',
+        help='Disable NHANES priors (use uniform priors)'
+    )
+    parser.add_argument(
+        '--distribution', '-d', type=str, default='normal_majority',
+        choices=['normal_majority', 'rnent_clinical', 'balanced'],
+        help='Distribution preset (default: normal_majority)'
     )
     parser.add_argument(
         '--workers', '-w', type=int, default=None,
@@ -846,6 +1113,7 @@ def main():
 
     n_listeners = 50 if args.mini else args.n_listeners
     output_dir = Path(args.output_dir) if args.output_dir else None
+    use_nhanes = not args.no_nhanes  # NHANES priors enabled by default
 
     if args.mini and output_dir is None:
         output_dir = Path("results/stage1_mini")
@@ -854,7 +1122,8 @@ def main():
         n_listeners=n_listeners,
         seed=args.seed,
         output_dir=output_dir,
-        use_nhanes_priors=args.nhanes,
+        use_nhanes_priors=use_nhanes,
+        distribution_preset=args.distribution,
         n_workers=args.workers,
         verbose=not args.quiet,
     )

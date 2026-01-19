@@ -102,14 +102,15 @@ PHENOTYPE_DEFINITIONS = {
         proportion=0.12
     ),
 
-    # Cluster 5: Moderate high-frequency - 8%
+    # Cluster 5: Noise-induced hearing loss (NIHL) with 4kHz notch - 8%
     'moderate_high_freq': PhenotypeDefinition(
         name='moderate_high_freq',
         cluster_id=4,
         category='noise_induced',
         n_target=176,  # 8% of 2200
-        description='Moderate high-frequency accentuated loss (24-74 dB)',
-        mean_thresholds={250: 24, 500: 27, 1000: 33, 2000: 47, 4000: 62, 8000: 74},
+        description='Noise-induced HL with characteristic 4kHz notch and 8kHz recovery',
+        # Classic NIHL pattern: normal lows, notch at 4kHz, recovery at 8kHz
+        mean_thresholds={250: 15, 500: 18, 1000: 22, 2000: 35, 4000: 65, 8000: 45},
         proportion=0.08
     ),
 

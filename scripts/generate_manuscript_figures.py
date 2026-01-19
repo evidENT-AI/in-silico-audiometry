@@ -273,14 +273,25 @@ def prepare_reliability_data(full_results: dict, summary: dict) -> tuple:
     return test1_results, test2_results, icc_bayes, icc_mhw, ba_bayes, ba_mhw
 
 
-def prepare_matching_data(summary: dict) -> tuple:
+def prepare_matching_data(full_results: dict, summary: dict) -> tuple:
     """Prepare phenotype matching data for Figure 4."""
     h3 = summary.get('h3_phenotype_matching', {})
 
+    # Extract predicted_gains and observed_gains from full_results
+    predicted_gains = []
+    observed_gains = []
+    phenotypes = []
+
+    if full_results and 'h3_phenotype_matching' in full_results:
+        h3_full = full_results['h3_phenotype_matching']
+        predicted_gains = h3_full.get('predicted_gains', [])
+        observed_gains = h3_full.get('observed_gains', [])
+        phenotypes = h3_full.get('phenotypes', [])
+
     matching_results = {
-        'predicted_gains': [],  # Will be populated from full results if available
-        'observed_gains': [],
-        'phenotypes': [],
+        'predicted_gains': predicted_gains,
+        'observed_gains': observed_gains,
+        'phenotypes': phenotypes,
         'confusion_matrix': None,
         'feature_importance': np.random.rand(10),  # Placeholder
     }
@@ -386,7 +397,7 @@ def generate_figures(results_dir: Path, output_dir: Path, show: bool = False):
 
     # Figure 4: Phenotype Matching (H3)
     print("\nGenerating Figure 4: Phenotype Matching (H3)...")
-    matching_results, correlation_results = prepare_matching_data(summary)
+    matching_results, correlation_results = prepare_matching_data(full_results, summary)
     fig4 = plot_figure4_phenotype_matching(
         matching_results=matching_results,
         correlation_results=correlation_results,
@@ -414,7 +425,8 @@ def generate_figures(results_dir: Path, output_dir: Path, show: bool = False):
         fig6 = plot_figure6_bayesian(
             bayesian_stats=bayesian_stats,
             output_path=output_dir,
-            show=show
+            show=show,
+            full_results=full_results
         )
         print(f"  Saved to: {output_dir}/fig6_bayesian.*")
     else:
