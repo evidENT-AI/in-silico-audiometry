@@ -1,0 +1,2376 @@
+{
+  "dataset_info": {
+    "name": "Medical Conditions",
+    "code": "I",
+    "year_cycle": "2015-2016",
+    "component": "Questionnaire",
+    "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/MCQ_I.htm",
+    "download_date": "2026-01-19T12:29:13.229309",
+    "nhanes_version": "2015-2016"
+  },
+  "data_file": {
+    "filename": "2015-2016_Medical_Conditions_MCQ_I.csv",
+    "path": "csv/Medical_Conditions/2015-2016_Medical_Conditions_MCQ_I.csv",
+    "n_rows": 9575,
+    "n_columns": 90
+  },
+  "variables": {
+    "SEQN": {
+      "code": "SEQN",
+      "label": "Respondent sequence number",
+      "description": "Respondent sequence number",
+      "type": "identifier",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 83732.0,
+        "max": 93702.0,
+        "mean": 88727.23697127937,
+        "median": 88732.0
+      }
+    },
+    "MCQ010": {
+      "code": "MCQ010",
+      "label": "Ever been told you have asthma",
+      "description": "Ever been told you have asthma",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.8571279373368146,
+        "median": 2.0
+      }
+    },
+    "MCQ025": {
+      "code": "MCQ025",
+      "label": "Age when first had asthma",
+      "description": "Age when first had asthma",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1443,
+        "missing": 8132,
+        "missing_pct": 84.9295039164491,
+        "min": 1.0,
+        "max": 99999.0,
+        "mean": 2093.3416493416494,
+        "median": 7.0
+      }
+    },
+    "MCQ035": {
+      "code": "MCQ035",
+      "label": "Still have asthma",
+      "description": "Still have asthma",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1443,
+        "missing": 8132,
+        "missing_pct": 84.9295039164491,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.4892584892584892,
+        "median": 1.0
+      }
+    },
+    "MCQ040": {
+      "code": "MCQ040",
+      "label": "Had asthma attack in past year",
+      "description": "Had asthma attack in past year",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 877,
+        "missing": 8698,
+        "missing_pct": 90.84073107049608,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.5267958950969214,
+        "median": 2.0
+      }
+    },
+    "MCQ050": {
+      "code": "MCQ050",
+      "label": "Emergency care visit for asthma/past yr",
+      "description": "Emergency care visit for asthma/past yr",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 877,
+        "missing": 8698,
+        "missing_pct": 90.84073107049608,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.8061573546180159,
+        "median": 2.0
+      }
+    },
+    "AGQ030": {
+      "code": "AGQ030",
+      "label": "Did SP have episode of hay fever/past yr",
+      "description": "Did SP have episode of hay fever/past yr",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 877,
+        "missing": 8698,
+        "missing_pct": 90.84073107049608,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7844925883694414,
+        "median": 2.0
+      }
+    },
+    "MCQ053": {
+      "code": "MCQ053",
+      "label": "Taking treatment for anemia/past 3 mos",
+      "description": "Taking treatment for anemia/past 3 mos",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9756657963446476,
+        "median": 2.0
+      }
+    },
+    "MCQ080": {
+      "code": "MCQ080",
+      "label": "Doctor ever said you were overweight",
+      "description": "Doctor ever said you were overweight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.654496601865023,
+        "median": 2.0
+      }
+    },
+    "MCQ092": {
+      "code": "MCQ092",
+      "label": "Ever receive blood transfusion",
+      "description": "Ever receive blood transfusion",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8366,
+        "missing": 1209,
+        "missing_pct": 12.6266318537859,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9872101362658379,
+        "median": 2.0
+      }
+    },
+    "MCD093": {
+      "code": "MCD093",
+      "label": "Year receive blood transfusion",
+      "description": "Year receive blood transfusion",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Before 1972",
+        "2": "1972 - 1991",
+        "3": "1992 to present",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 660,
+        "missing": 8915,
+        "missing_pct": 93.1070496083551,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 2.790909090909091,
+        "median": 3.0
+      }
+    },
+    "MCQ149": {
+      "code": "MCQ149",
+      "label": "Menstrual periods started yet?",
+      "description": "Menstrual periods started yet?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 439,
+        "missing": 9136,
+        "missing_pct": 95.41514360313316,
+        "min": 1.0,
+        "max": 7.0,
+        "mean": 1.9088838268792712,
+        "median": 2.0
+      }
+    },
+    "MCQ151": {
+      "code": "MCQ151",
+      "label": "Age at first menstrual period",
+      "description": "Age at first menstrual period",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "9 to 11": "Range of Values",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 50,
+        "missing": 9525,
+        "missing_pct": 99.47780678851174,
+        "min": 9.0,
+        "max": 11.0,
+        "mean": 10.28,
+        "median": 10.0
+      }
+    },
+    "MCQ160A": {
+      "code": "MCQ160A",
+      "label": "Doctor ever said you had arthritis",
+      "description": "Doctor ever said you had arthritis",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7564259485924112,
+        "median": 2.0
+      }
+    },
+    "MCQ180A": {
+      "code": "MCQ180A",
+      "label": "Age when told you had arthritis",
+      "description": "Age when told you had arthritis",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "2 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1470,
+        "missing": 8105,
+        "missing_pct": 84.64751958224544,
+        "min": 2.0,
+        "max": 99999.0,
+        "mean": 2564.8278911564626,
+        "median": 50.0
+      }
+    },
+    "MCQ195": {
+      "code": "MCQ195",
+      "label": "Which type of arthritis was it?",
+      "description": "Which type of arthritis was it?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Osteoarthritis or degenerative arthritis",
+        "2": "Rheumatoid arthritis",
+        "3": "Psoriatic arthritis",
+        "4": "Other",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1470,
+        "missing": 8105,
+        "missing_pct": 84.64751958224544,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 3.7006802721088436,
+        "median": 2.0
+      }
+    },
+    "MCQ160N": {
+      "code": "MCQ160N",
+      "label": "Doctor ever told you that you had gout?",
+      "description": "Doctor ever told you that you had gout?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.962406015037594,
+        "median": 2.0
+      }
+    },
+    "MCQ180N": {
+      "code": "MCQ180N",
+      "label": "Age when told you had gout.",
+      "description": "Age when told you had gout.",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 271,
+        "missing": 9304,
+        "missing_pct": 97.16971279373368,
+        "min": 18.0,
+        "max": 99999.0,
+        "mean": 3000.6937269372693,
+        "median": 50.0
+      }
+    },
+    "MCQ160B": {
+      "code": "MCQ160B",
+      "label": "Ever told had congestive heart failure",
+      "description": "Ever told had congestive heart failure",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.976044763070467,
+        "median": 2.0
+      }
+    },
+    "MCQ180B": {
+      "code": "MCQ180B",
+      "label": "Age when told you had heart failure",
+      "description": "Age when told you had heart failure",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 214,
+        "missing": 9361,
+        "missing_pct": 97.76501305483029,
+        "min": 0.0,
+        "max": 99999.0,
+        "mean": 2288.392523364486,
+        "median": 58.0
+      }
+    },
+    "MCQ160C": {
+      "code": "MCQ160C",
+      "label": "Ever told you had coronary heart disease",
+      "description": "Ever told you had coronary heart disease",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9891589438713062,
+        "median": 2.0
+      }
+    },
+    "MCQ180C": {
+      "code": "MCQ180C",
+      "label": "Age when told had coronary heart disease",
+      "description": "Age when told had coronary heart disease",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 244,
+        "missing": 9331,
+        "missing_pct": 97.45169712793734,
+        "min": 10.0,
+        "max": 99999.0,
+        "mean": 2105.0204918032787,
+        "median": 58.0
+      }
+    },
+    "MCQ160D": {
+      "code": "MCQ160D",
+      "label": "Ever told you had angina/angina pectoris",
+      "description": "Ever told you had angina/angina pectoris",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9984262983038992,
+        "median": 2.0
+      }
+    },
+    "MCQ180D": {
+      "code": "MCQ180D",
+      "label": "Age when told you had angina pectoris",
+      "description": "Age when told you had angina pectoris",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 133,
+        "missing": 9442,
+        "missing_pct": 98.61096605744125,
+        "min": 10.0,
+        "max": 99999.0,
+        "mean": 1385.2781954887218,
+        "median": 50.0
+      }
+    },
+    "MCQ160E": {
+      "code": "MCQ160E",
+      "label": "Ever told you had heart attack",
+      "description": "Ever told you had heart attack",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9671271201258962,
+        "median": 2.0
+      }
+    },
+    "MCQ180E": {
+      "code": "MCQ180E",
+      "label": "Age when told you had heart attack",
+      "description": "Age when told you had heart attack",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "20 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 251,
+        "missing": 9324,
+        "missing_pct": 97.37859007832898,
+        "min": 20.0,
+        "max": 99999.0,
+        "mean": 2047.5458167330678,
+        "median": 57.0
+      }
+    },
+    "MCQ160F": {
+      "code": "MCQ160F",
+      "label": "Ever told you had a stroke",
+      "description": "Ever told you had a stroke",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9695751005420528,
+        "median": 2.0
+      }
+    },
+    "MCQ180F": {
+      "code": "MCQ180F",
+      "label": "Age when told you had a stroke",
+      "description": "Age when told you had a stroke",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "2 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 209,
+        "missing": 9366,
+        "missing_pct": 97.81723237597912,
+        "min": 2.0,
+        "max": 99999.0,
+        "mean": 1968.5406698564593,
+        "median": 59.0
+      }
+    },
+    "MCQ160G": {
+      "code": "MCQ160G",
+      "label": "Ever told you had emphysema",
+      "description": "Ever told you had emphysema",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9867109634551494,
+        "median": 2.0
+      }
+    },
+    "MCQ180G": {
+      "code": "MCQ180G",
+      "label": "Age when told you had emphysema",
+      "description": "Age when told you had emphysema",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "13 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 125,
+        "missing": 9450,
+        "missing_pct": 98.69451697127938,
+        "min": 13.0,
+        "max": 99999.0,
+        "mean": 3073.28,
+        "median": 55.0
+      }
+    },
+    "MCQ160M": {
+      "code": "MCQ160M",
+      "label": "Ever told you had thyroid problem",
+      "description": "Ever told you had thyroid problem",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.904703619513901,
+        "median": 2.0
+      }
+    },
+    "MCQ170M": {
+      "code": "MCQ170M",
+      "label": "Do you still have thyroid problem",
+      "description": "Do you still have thyroid problem",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 622,
+        "missing": 8953,
+        "missing_pct": 93.50391644908616,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.5659163987138263,
+        "median": 1.0
+      }
+    },
+    "MCQ180M": {
+      "code": "MCQ180M",
+      "label": "Age when told you had thyroid problem",
+      "description": "Age when told you had thyroid problem",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "8 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 622,
+        "missing": 8953,
+        "missing_pct": 93.50391644908616,
+        "min": 8.0,
+        "max": 99999.0,
+        "mean": 1937.3665594855306,
+        "median": 45.0
+      }
+    },
+    "MCQ160K": {
+      "code": "MCQ160K",
+      "label": "Ever told you had chronic bronchitis",
+      "description": "Ever told you had chronic bronchitis",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.965203706941773,
+        "median": 2.0
+      }
+    },
+    "MCQ170K": {
+      "code": "MCQ170K",
+      "label": "Do you still have chronic bronchitis",
+      "description": "Do you still have chronic bronchitis",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 304,
+        "missing": 9271,
+        "missing_pct": 96.82506527415143,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.743421052631579,
+        "median": 2.0
+      }
+    },
+    "MCQ180K": {
+      "code": "MCQ180K",
+      "label": "Age when told you had chronic bronchitis",
+      "description": "Age when told you had chronic bronchitis",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 304,
+        "missing": 9271,
+        "missing_pct": 96.82506527415143,
+        "min": 0.0,
+        "max": 99999.0,
+        "mean": 2665.9473684210525,
+        "median": 35.0
+      }
+    },
+    "MCQ160L": {
+      "code": "MCQ160L",
+      "label": "Ever told you had any liver condition",
+      "description": "Ever told you had any liver condition",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9694002447980417,
+        "median": 2.0
+      }
+    },
+    "MCQ170L": {
+      "code": "MCQ170L",
+      "label": "Do you still have a liver condition",
+      "description": "Do you still have a liver condition",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 259,
+        "missing": 9316,
+        "missing_pct": 97.29503916449086,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 2.189189189189189,
+        "median": 1.0
+      }
+    },
+    "MCQ180L": {
+      "code": "MCQ180L",
+      "label": "Age when told you had a liver condition",
+      "description": "Age when told you had a liver condition",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "5 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 259,
+        "missing": 9316,
+        "missing_pct": 97.29503916449086,
+        "min": 5.0,
+        "max": 99999.0,
+        "mean": 1200.2818532818533,
+        "median": 43.0
+      }
+    },
+    "MCQ160O": {
+      "code": "MCQ160O",
+      "label": "Ever told you had COPD?",
+      "description": "Ever told you had COPD?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9746459171183774,
+        "median": 2.0
+      }
+    },
+    "MCQ203": {
+      "code": "MCQ203",
+      "label": "Ever been told you have jaundice?",
+      "description": "Ever been told you have jaundice?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8366,
+        "missing": 1209,
+        "missing_pct": 12.6266318537859,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9892421706908916,
+        "median": 2.0
+      }
+    },
+    "MCQ206": {
+      "code": "MCQ206",
+      "label": "Age when told you have jaundice?",
+      "description": "Age when told you have jaundice?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "2 to 68": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 174,
+        "missing": 9401,
+        "missing_pct": 98.18276762402088,
+        "min": 2.0,
+        "max": 99999.0,
+        "mean": 1173.2356321839081,
+        "median": 21.0
+      }
+    },
+    "MCQ220": {
+      "code": "MCQ220",
+      "label": "Ever told you had cancer or malignancy",
+      "description": "Ever told you had cancer or malignancy",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.910124147578248,
+        "median": 2.0
+      }
+    },
+    "MCQ230A": {
+      "code": "MCQ230A",
+      "label": "What kind of cancer",
+      "description": "What kind of cancer",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10": "Bladder",
+        "11": "Blood",
+        "12": "Bone",
+        "13": "Brain",
+        "14": "Breast",
+        "15": "Cervix (cervical)",
+        "16": "Colon",
+        "17": "Esophagus (esophageal)",
+        "18": "Gallbladder",
+        "19": "Kidney",
+        "20": "Larynx/ windpipe",
+        "21": "Leukemia",
+        "22": "Liver",
+        "23": "Lung",
+        "24": "Lymphoma/ Hodgkin's disease",
+        "25": "Melanoma",
+        "26": "Mouth/tongue/lip",
+        "27": "Nervous system",
+        "28": "Ovary (ovarian)",
+        "29": "Pancreas (pancreatic)",
+        "30": "Prostate",
+        "31": "Rectum (rectal)",
+        "32": "Skin (non-melanoma)",
+        "33": "Skin (don't know what kind)",
+        "34": "Soft tissue (muscle or fat)",
+        "35": "Stomach",
+        "36": "Testis (testicular)",
+        "37": "Thyroid",
+        "38": "Uterus (uterine)",
+        "39": "Other",
+        "66": "More than 3 kinds",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 549,
+        "missing": 9026,
+        "missing_pct": 94.26631853785901,
+        "min": 10.0,
+        "max": 99.0,
+        "mean": 25.83242258652095,
+        "median": 30.0
+      }
+    },
+    "MCQ230B": {
+      "code": "MCQ230B",
+      "label": "What kind of cancer",
+      "description": "What kind of cancer",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10": "Bladder",
+        "11": "Blood",
+        "12": "Bone",
+        "13": "Brain",
+        "14": "Breast",
+        "15": "Cervix (cervical)",
+        "16": "Colon",
+        "17": "Esophagus (esophageal)",
+        "18": "Gallbladder",
+        "19": "Kidney",
+        "20": "Larynx/ windpipe",
+        "21": "Leukemia",
+        "22": "Liver",
+        "23": "Lung",
+        "24": "Lymphoma/ Hodgkins disease",
+        "25": "Melanoma",
+        "26": "Mouth/tongue/lip",
+        "27": "Nervous system",
+        "28": "Ovary (ovarian)",
+        "29": "Pancreas (pancreatic)",
+        "30": "Prostate",
+        "31": "Rectum (rectal)",
+        "32": "Skin (non-melanoma)",
+        "33": "Skin (don't know what kind)",
+        "34": "Soft tissue (muscle or fat)",
+        "35": "Stomach",
+        "36": "Testis (testicular)",
+        "37": "Thyroid",
+        "38": "Uterus (uterine)",
+        "39": "Other",
+        "66": "More than 3 kinds",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 63,
+        "missing": 9512,
+        "missing_pct": 99.3420365535248,
+        "min": 10.0,
+        "max": 39.0,
+        "mean": 28.49206349206349,
+        "median": 30.0
+      }
+    },
+    "MCQ230C": {
+      "code": "MCQ230C",
+      "label": "What kind of cancer",
+      "description": "What kind of cancer",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10": "Bladder",
+        "11": "Blood",
+        "12": "Bone",
+        "13": "Brain",
+        "14": "Breast",
+        "15": "Cervix (cervical)",
+        "16": "Colon",
+        "17": "Esophagus (esophageal)",
+        "18": "Gallbladder",
+        "19": "Kidney",
+        "20": "Larynx/ windpipe",
+        "21": "Leukemia",
+        "22": "Liver",
+        "23": "Lung",
+        "24": "Lymphoma/ Hodgkins disease",
+        "25": "Melanoma",
+        "26": "Mouth/tongue/lip",
+        "27": "Nervous system",
+        "28": "Ovary (ovarian)",
+        "29": "Pancreas (pancreatic)",
+        "30": "Prostate",
+        "31": "Rectum (rectal)",
+        "32": "Skin (non-melanoma)",
+        "33": "Skin (don't know what kind)",
+        "34": "Soft tissue (muscle or fat)",
+        "35": "Stomach",
+        "36": "Testis (testicular)",
+        "37": "Thyroid",
+        "38": "Uterus (uterine)",
+        "39": "Other",
+        "66": "More than 3 kinds",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8,
+        "missing": 9567,
+        "missing_pct": 99.91644908616189,
+        "min": 22.0,
+        "max": 39.0,
+        "mean": 32.625,
+        "median": 35.0
+      }
+    },
+    "MCQ230D": {
+      "code": "MCQ230D",
+      "label": "What kind of cancer",
+      "description": "What kind of cancer",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10": "Bladder",
+        "11": "Blood",
+        "12": "Bone",
+        "13": "Brain",
+        "14": "Breast",
+        "15": "Cervix (cervical)",
+        "16": "Colon",
+        "17": "Esophagus (esophageal)",
+        "18": "Gallbladder",
+        "19": "Kidney",
+        "20": "Larynx/ windpipe",
+        "21": "Leukemia",
+        "22": "Liver",
+        "23": "Lung",
+        "24": "Lymphoma/ Hodgkins disease",
+        "25": "Melanoma",
+        "26": "Mouth/tongue/lip",
+        "27": "Nervous system",
+        "28": "Ovary (ovarian)",
+        "29": "Pancreas (pancreatic)",
+        "30": "Prostate",
+        "31": "Rectum (rectal)",
+        "32": "Skin (non-melanoma)",
+        "33": "Skin (don't know what kind)",
+        "34": "Soft tissue (muscle or fat)",
+        "35": "Stomach",
+        "36": "Testis (testicular)",
+        "37": "Thyroid",
+        "38": "Uterus (uterine)",
+        "39": "Other",
+        "66": "More than 3 kinds",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240A": {
+      "code": "MCQ240A",
+      "label": "Age when bladder cancer first diagnosed",
+      "description": "Age when bladder cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "7 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 22,
+        "missing": 9553,
+        "missing_pct": 99.77023498694517,
+        "min": 7.0,
+        "max": 80.0,
+        "mean": 66.77272727272727,
+        "median": 71.5
+      }
+    },
+    "MCQ240AA": {
+      "code": "MCQ240AA",
+      "label": "Age testicular cancer first diagnosed",
+      "description": "Age testicular cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "30 to 54": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4,
+        "missing": 9571,
+        "missing_pct": 99.95822454308095,
+        "min": 30.0,
+        "max": 54.0,
+        "mean": 42.0,
+        "median": 42.0
+      }
+    },
+    "MCQ240B": {
+      "code": "MCQ240B",
+      "label": "Age when blood cancer first diagnosed",
+      "description": "Age when blood cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "70": "70",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2,
+        "missing": 9573,
+        "missing_pct": 99.97911227154047,
+        "min": 70.0,
+        "max": 99999.0,
+        "mean": 50034.5,
+        "median": 50034.5
+      }
+    },
+    "MCQ240BB": {
+      "code": "MCQ240BB",
+      "label": "Age when thyroid cancer first diagnosed",
+      "description": "Age when thyroid cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "28 to 72": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 13,
+        "missing": 9562,
+        "missing_pct": 99.86422976501305,
+        "min": 28.0,
+        "max": 80.0,
+        "mean": 49.23076923076923,
+        "median": 40.0
+      }
+    },
+    "MCQ240C": {
+      "code": "MCQ240C",
+      "label": "Age when bone cancer first diagnosed",
+      "description": "Age when bone cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "69 to 72": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2,
+        "missing": 9573,
+        "missing_pct": 99.97911227154047,
+        "min": 69.0,
+        "max": 72.0,
+        "mean": 70.5,
+        "median": 70.5
+      }
+    },
+    "MCQ240CC": {
+      "code": "MCQ240CC",
+      "label": "Age when uterine cancer first diagnosed",
+      "description": "Age when uterine cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18 to 66": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 33,
+        "missing": 9542,
+        "missing_pct": 99.65535248041776,
+        "min": 18.0,
+        "max": 99999.0,
+        "mean": 3071.848484848485,
+        "median": 44.0
+      }
+    },
+    "MCQ240D": {
+      "code": "MCQ240D",
+      "label": "Age when brain cancer first diagnosed",
+      "description": "Age when brain cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240DD": {
+      "code": "MCQ240DD",
+      "label": "Age other type of cancer first diagnosed",
+      "description": "Age other type of cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "3 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 33,
+        "missing": 9542,
+        "missing_pct": 99.65535248041776,
+        "min": 3.0,
+        "max": 99999.0,
+        "mean": 3081.060606060606,
+        "median": 60.0
+      }
+    },
+    "MCQ240DK": {
+      "code": "MCQ240DK",
+      "label": "How old when cancer first diagnosed?",
+      "description": "How old when cancer first diagnosed?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "40": "40",
+        "80": "80 years or older",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1,
+        "missing": 9574,
+        "missing_pct": 99.98955613577023,
+        "min": 40.0,
+        "max": 40.0,
+        "mean": 40.0,
+        "median": 40.0
+      }
+    },
+    "MCQ240E": {
+      "code": "MCQ240E",
+      "label": "Age when breast cancer first diagnosed",
+      "description": "Age when breast cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "25 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 86,
+        "missing": 9489,
+        "missing_pct": 99.1018276762402,
+        "min": 25.0,
+        "max": 99999.0,
+        "mean": 2379.732558139535,
+        "median": 55.0
+      }
+    },
+    "MCQ240F": {
+      "code": "MCQ240F",
+      "label": "Age when cervical cancer first diagnosed",
+      "description": "Age when cervical cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "16 to 54": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 22,
+        "missing": 9553,
+        "missing_pct": 99.77023498694517,
+        "min": 16.0,
+        "max": 54.0,
+        "mean": 31.136363636363637,
+        "median": 30.0
+      }
+    },
+    "MCQ240G": {
+      "code": "MCQ240G",
+      "label": "Age when colon cancer first diagnosed",
+      "description": "Age when colon cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "15 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 36,
+        "missing": 9539,
+        "missing_pct": 99.62402088772846,
+        "min": 15.0,
+        "max": 80.0,
+        "mean": 58.5,
+        "median": 63.0
+      }
+    },
+    "MCQ240H": {
+      "code": "MCQ240H",
+      "label": "Age esophageal cancer first diagnosed",
+      "description": "Age esophageal cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "64 to 71": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2,
+        "missing": 9573,
+        "missing_pct": 99.97911227154047,
+        "min": 64.0,
+        "max": 71.0,
+        "mean": 67.5,
+        "median": 67.5
+      }
+    },
+    "MCQ240I": {
+      "code": "MCQ240I",
+      "label": "Age gallbladder cancer first diagnosed",
+      "description": "Age gallbladder cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240J": {
+      "code": "MCQ240J",
+      "label": "Age when kidney cancer first diagnosed",
+      "description": "Age when kidney cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "27 to 76": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8,
+        "missing": 9567,
+        "missing_pct": 99.91644908616189,
+        "min": 27.0,
+        "max": 76.0,
+        "mean": 57.75,
+        "median": 61.0
+      }
+    },
+    "MCQ240K": {
+      "code": "MCQ240K",
+      "label": "Age larynx/windpipe cancer diagnosed",
+      "description": "Age larynx/windpipe cancer diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240L": {
+      "code": "MCQ240L",
+      "label": "Age when leukemia first diagnosed",
+      "description": "Age when leukemia first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "3 to 70": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 13,
+        "missing": 9562,
+        "missing_pct": 99.86422976501305,
+        "min": 3.0,
+        "max": 80.0,
+        "mean": 45.07692307692308,
+        "median": 46.0
+      }
+    },
+    "MCQ240M": {
+      "code": "MCQ240M",
+      "label": "Age when liver cancer first diagnosed",
+      "description": "Age when liver cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "30 to 69": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6,
+        "missing": 9569,
+        "missing_pct": 99.93733681462142,
+        "min": 30.0,
+        "max": 69.0,
+        "mean": 54.0,
+        "median": 55.0
+      }
+    },
+    "MCQ240N": {
+      "code": "MCQ240N",
+      "label": "Age when lung cancer first diagnosed",
+      "description": "Age when lung cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "40 to 77": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 15,
+        "missing": 9560,
+        "missing_pct": 99.84334203655352,
+        "min": 40.0,
+        "max": 80.0,
+        "mean": 68.6,
+        "median": 71.0
+      }
+    },
+    "MCQ240O": {
+      "code": "MCQ240O",
+      "label": "Age lymphoma/Hodgkins' diagnosed",
+      "description": "Age lymphoma/Hodgkins' diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "19 to 65": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 11,
+        "missing": 9564,
+        "missing_pct": 99.88511749347259,
+        "min": 19.0,
+        "max": 80.0,
+        "mean": 48.0,
+        "median": 49.0
+      }
+    },
+    "MCQ240P": {
+      "code": "MCQ240P",
+      "label": "Age when melanoma first diagnosed",
+      "description": "Age when melanoma first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "15 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 44,
+        "missing": 9531,
+        "missing_pct": 99.54046997389034,
+        "min": 15.0,
+        "max": 80.0,
+        "mean": 57.90909090909091,
+        "median": 60.0
+      }
+    },
+    "MCQ240Q": {
+      "code": "MCQ240Q",
+      "label": "Age mouth\\tongue\\lip cancer diagnosed",
+      "description": "Age mouth\\tongue\\lip cancer diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "44 to 66": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4,
+        "missing": 9571,
+        "missing_pct": 99.95822454308095,
+        "min": 44.0,
+        "max": 80.0,
+        "mean": 61.5,
+        "median": 61.0
+      }
+    },
+    "MCQ240R": {
+      "code": "MCQ240R",
+      "label": "Age nervous system cancer diagnosed",
+      "description": "Age nervous system cancer diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240S": {
+      "code": "MCQ240S",
+      "label": "Age when ovarian cancer first diagnosed",
+      "description": "Age when ovarian cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18 to 74": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 21,
+        "missing": 9554,
+        "missing_pct": 99.78067885117493,
+        "min": 18.0,
+        "max": 74.0,
+        "mean": 42.04761904761905,
+        "median": 37.0
+      }
+    },
+    "MCQ240T": {
+      "code": "MCQ240T",
+      "label": "Age pancreatic cancer first diagnosed",
+      "description": "Age pancreatic cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "40 to 54": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 3,
+        "missing": 9572,
+        "missing_pct": 99.9686684073107,
+        "min": 40.0,
+        "max": 54.0,
+        "mean": 47.666666666666664,
+        "median": 49.0
+      }
+    },
+    "MCQ240U": {
+      "code": "MCQ240U",
+      "label": "Age prostate cancer first diagnosed",
+      "description": "Age prostate cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "46 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 97,
+        "missing": 9478,
+        "missing_pct": 98.9869451697128,
+        "min": 46.0,
+        "max": 80.0,
+        "mean": 64.30927835051547,
+        "median": 65.0
+      }
+    },
+    "MCQ240V": {
+      "code": "MCQ240V",
+      "label": "Age when rectal cancer first diagnosed",
+      "description": "Age when rectal cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "53 to 54": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2,
+        "missing": 9573,
+        "missing_pct": 99.97911227154047,
+        "min": 53.0,
+        "max": 54.0,
+        "mean": 53.5,
+        "median": 53.5
+      }
+    },
+    "MCQ240W": {
+      "code": "MCQ240W",
+      "label": "Age non-melanoma skin cancer diagnosed",
+      "description": "Age non-melanoma skin cancer diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "27 to 79": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 82,
+        "missing": 9493,
+        "missing_pct": 99.14360313315926,
+        "min": 27.0,
+        "max": 80.0,
+        "mean": 58.353658536585364,
+        "median": 60.0
+      }
+    },
+    "MCQ240X": {
+      "code": "MCQ240X",
+      "label": "Age unknown skin cancer first diagnosed",
+      "description": "Age unknown skin cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "30 to 78": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 54,
+        "missing": 9521,
+        "missing_pct": 99.43603133159269,
+        "min": 30.0,
+        "max": 99999.0,
+        "mean": 1911.0740740740741,
+        "median": 58.5
+      }
+    },
+    "MCQ240Y": {
+      "code": "MCQ240Y",
+      "label": "Age soft tissue cancer first diagnosed",
+      "description": "Age soft tissue cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 0,
+        "missing": 9575,
+        "missing_pct": 100.0,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "median": null
+      }
+    },
+    "MCQ240Z": {
+      "code": "MCQ240Z",
+      "label": "Age stomach cancer first diagnosed",
+      "description": "Age stomach cancer first diagnosed",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "42 to 60": "Range of Values",
+        "80": "80 years or older",
+        "77777": "Refused",
+        "99999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4,
+        "missing": 9571,
+        "missing_pct": 99.95822454308095,
+        "min": 42.0,
+        "max": 80.0,
+        "mean": 56.75,
+        "median": 52.5
+      }
+    },
+    "MCQ300A": {
+      "code": "MCQ300A",
+      "label": "Close relative had heart attack?",
+      "description": "Close relative had heart attack?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 2.0631229235880397,
+        "median": 2.0
+      }
+    },
+    "MCQ300B": {
+      "code": "MCQ300B",
+      "label": "Close relative had asthma?",
+      "description": "Close relative had asthma?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8366,
+        "missing": 1209,
+        "missing_pct": 12.6266318537859,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9122639254123834,
+        "median": 2.0
+      }
+    },
+    "MCQ300C": {
+      "code": "MCQ300C",
+      "label": "Close relative had diabetes?",
+      "description": "Close relative had diabetes?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 3856,
+        "missing_pct": 40.271540469973885,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7013463892288863,
+        "median": 2.0
+      }
+    },
+    "MCQ365A": {
+      "code": "MCQ365A",
+      "label": "Doctor told you to lose weight",
+      "description": "Doctor told you to lose weight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7309941520467835,
+        "median": 2.0
+      }
+    },
+    "MCQ365B": {
+      "code": "MCQ365B",
+      "label": "Doctor told you to exercise",
+      "description": "Doctor told you to exercise",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.6119804014540857,
+        "median": 2.0
+      }
+    },
+    "MCQ365C": {
+      "code": "MCQ365C",
+      "label": "Doctor told you to reduce salt in diet",
+      "description": "Doctor told you to reduce salt in diet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.734945471787577,
+        "median": 2.0
+      }
+    },
+    "MCQ365D": {
+      "code": "MCQ365D",
+      "label": "Doctor told you to reduce fat/calories",
+      "description": "Doctor told you to reduce fat/calories",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7060218112849692,
+        "median": 2.0
+      }
+    },
+    "MCQ370A": {
+      "code": "MCQ370A",
+      "label": "Are you now controlling or losing weight",
+      "description": "Are you now controlling or losing weight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.3981349770823455,
+        "median": 1.0
+      }
+    },
+    "MCQ370B": {
+      "code": "MCQ370B",
+      "label": "Are you now increasing exercise",
+      "description": "Are you now increasing exercise",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.4047731942468784,
+        "median": 1.0
+      }
+    },
+    "MCQ370C": {
+      "code": "MCQ370C",
+      "label": "Are you now reducing salt in diet",
+      "description": "Are you now reducing salt in diet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.5040303461356093,
+        "median": 1.0
+      }
+    },
+    "MCQ370D": {
+      "code": "MCQ370D",
+      "label": "Are you now reducing fat in diet",
+      "description": "Are you now reducing fat in diet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6327,
+        "missing": 3248,
+        "missing_pct": 33.92167101827676,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.4629366208313577,
+        "median": 1.0
+      }
+    },
+    "OSQ230": {
+      "code": "OSQ230",
+      "label": "Any metal objects inside your body?",
+      "description": "Any metal objects inside your body?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 3764,
+        "missing": 5811,
+        "missing_pct": 60.68929503916449,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.8023379383634432,
+        "median": 2.0
+      }
+    }
+  }
+}

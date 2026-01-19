@@ -1,0 +1,1341 @@
+{
+  "dataset_info": {
+    "name": "Diabetes",
+    "code": "I",
+    "year_cycle": "2015-2016",
+    "component": "Questionnaire",
+    "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DIQ_I.htm",
+    "download_date": "2026-01-19T12:29:11.055998",
+    "nhanes_version": "2015-2016"
+  },
+  "data_file": {
+    "filename": "2015-2016_Diabetes_DIQ_I.csv",
+    "path": "csv/Diabetes/2015-2016_Diabetes_DIQ_I.csv",
+    "n_rows": 9575,
+    "n_columns": 54
+  },
+  "variables": {
+    "SEQN": {
+      "code": "SEQN",
+      "label": "Respondent sequence number",
+      "description": "Respondent sequence number",
+      "type": "identifier",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 83732.0,
+        "max": 93702.0,
+        "mean": 88727.23697127937,
+        "median": 88732.0
+      }
+    },
+    "DIQ010": {
+      "code": "DIQ010",
+      "label": "Doctor told you have diabetes",
+      "description": "Doctor told you have diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "3": "Borderline",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.9288772845953002,
+        "median": 2.0
+      }
+    },
+    "DID040": {
+      "code": "DID040",
+      "label": "Age when first told you had diabetes",
+      "description": "Age when first told you had diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "2 to 78": "Range of Values",
+        "80": "80 years or older",
+        "666": "Less than 1 year",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 853,
+        "missing": 8722,
+        "missing_pct": 91.09138381201043,
+        "min": 2.0,
+        "max": 999.0,
+        "mean": 62.55685814771395,
+        "median": 50.0
+      }
+    },
+    "DIQ159": {
+      "code": "DIQ159",
+      "label": "CHECK ITEM",
+      "description": "CHECK ITEM",
+      "type": "unknown",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null
+    },
+    "DIQ160": {
+      "code": "DIQ160",
+      "label": "Ever told you have prediabetes",
+      "description": "Ever told you have prediabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6045,
+        "missing": 3530,
+        "missing_pct": 36.866840731070496,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.927874276261373,
+        "median": 2.0
+      }
+    },
+    "DIQ170": {
+      "code": "DIQ170",
+      "label": "Ever told have health risk for diabetes",
+      "description": "Ever told have health risk for diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6186,
+        "missing": 3389,
+        "missing_pct": 35.39425587467363,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.8761720012932428,
+        "median": 2.0
+      }
+    },
+    "DIQ172": {
+      "code": "DIQ172",
+      "label": "Feel could be at risk for diabetes",
+      "description": "Feel could be at risk for diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6186,
+        "missing": 3389,
+        "missing_pct": 35.39425587467363,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.8425476883284837,
+        "median": 2.0
+      }
+    },
+    "DIQ175A": {
+      "code": "DIQ175A",
+      "label": "Family history",
+      "description": "Family history",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "10": "Family history",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1186,
+        "missing": 8389,
+        "missing_pct": 87.61357702349869,
+        "min": 10.0,
+        "max": 10.0,
+        "mean": 10.0,
+        "median": 10.0
+      }
+    },
+    "DIQ175B": {
+      "code": "DIQ175B",
+      "label": "Overweight",
+      "description": "Overweight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "11": "Overweight",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 601,
+        "missing": 8974,
+        "missing_pct": 93.72323759791122,
+        "min": 11.0,
+        "max": 11.0,
+        "mean": 11.0,
+        "median": 11.0
+      }
+    },
+    "DIQ175C": {
+      "code": "DIQ175C",
+      "label": "Age",
+      "description": "Age",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "12": "Age",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 160,
+        "missing": 9415,
+        "missing_pct": 98.32898172323759,
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0,
+        "median": 12.0
+      }
+    },
+    "DIQ175D": {
+      "code": "DIQ175D",
+      "label": "Poor diet",
+      "description": "Poor diet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "13": "Poor diet",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 459,
+        "missing": 9116,
+        "missing_pct": 95.20626631853786,
+        "min": 13.0,
+        "max": 13.0,
+        "mean": 13.0,
+        "median": 13.0
+      }
+    },
+    "DIQ175E": {
+      "code": "DIQ175E",
+      "label": "Race",
+      "description": "Race",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "14": "Race",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 155,
+        "missing": 9420,
+        "missing_pct": 98.38120104438643,
+        "min": 14.0,
+        "max": 14.0,
+        "mean": 14.0,
+        "median": 14.0
+      }
+    },
+    "DIQ175F": {
+      "code": "DIQ175F",
+      "label": "Had a baby weighed over 9 lbs. at birth",
+      "description": "Had a baby weighed over 9 lbs. at birth",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "15": "Had a baby weighed over 9 lbs. at birth",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 53,
+        "missing": 9522,
+        "missing_pct": 99.44647519582246,
+        "min": 15.0,
+        "max": 15.0,
+        "mean": 15.0,
+        "median": 15.0
+      }
+    },
+    "DIQ175G": {
+      "code": "DIQ175G",
+      "label": "Lack of physical activity",
+      "description": "Lack of physical activity",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "16": "Lack of physical activity",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 280,
+        "missing": 9295,
+        "missing_pct": 97.0757180156658,
+        "min": 16.0,
+        "max": 16.0,
+        "mean": 16.0,
+        "median": 16.0
+      }
+    },
+    "DIQ175H": {
+      "code": "DIQ175H",
+      "label": "High blood pressure",
+      "description": "High blood pressure",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "17": "High blood pressure",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 258,
+        "missing": 9317,
+        "missing_pct": 97.30548302872063,
+        "min": 17.0,
+        "max": 17.0,
+        "mean": 17.0,
+        "median": 17.0
+      }
+    },
+    "DIQ175I": {
+      "code": "DIQ175I",
+      "label": "High blood sugar",
+      "description": "High blood sugar",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18": "High blood sugar",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 77,
+        "missing": 9498,
+        "missing_pct": 99.19582245430809,
+        "min": 18.0,
+        "max": 18.0,
+        "mean": 18.0,
+        "median": 18.0
+      }
+    },
+    "DIQ175J": {
+      "code": "DIQ175J",
+      "label": "High cholesterol",
+      "description": "High cholesterol",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "19": "High cholesterol",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 150,
+        "missing": 9425,
+        "missing_pct": 98.43342036553526,
+        "min": 19.0,
+        "max": 19.0,
+        "mean": 19.0,
+        "median": 19.0
+      }
+    },
+    "DIQ175K": {
+      "code": "DIQ175K",
+      "label": "Hypoglycemic",
+      "description": "Hypoglycemic",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "20": "Hypoglycemic",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 31,
+        "missing": 9544,
+        "missing_pct": 99.67624020887729,
+        "min": 20.0,
+        "max": 20.0,
+        "mean": 20.0,
+        "median": 20.0
+      }
+    },
+    "DIQ175L": {
+      "code": "DIQ175L",
+      "label": "Extreme hunger",
+      "description": "Extreme hunger",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "21": "Extreme hunger",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 59,
+        "missing": 9516,
+        "missing_pct": 99.38381201044386,
+        "min": 21.0,
+        "max": 21.0,
+        "mean": 21.0,
+        "median": 21.0
+      }
+    },
+    "DIQ175M": {
+      "code": "DIQ175M",
+      "label": "Tingling/numbness in hands or feet",
+      "description": "Tingling/numbness in hands or feet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "22": "Tingling/numbness in hands or feet",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 138,
+        "missing": 9437,
+        "missing_pct": 98.55874673629242,
+        "min": 22.0,
+        "max": 22.0,
+        "mean": 22.0,
+        "median": 22.0
+      }
+    },
+    "DIQ175N": {
+      "code": "DIQ175N",
+      "label": "Blurred vision",
+      "description": "Blurred vision",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "23": "Blurred vision",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 109,
+        "missing": 9466,
+        "missing_pct": 98.8616187989556,
+        "min": 23.0,
+        "max": 23.0,
+        "mean": 23.0,
+        "median": 23.0
+      }
+    },
+    "DIQ175O": {
+      "code": "DIQ175O",
+      "label": "Increased fatigue",
+      "description": "Increased fatigue",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "24": "Increased fatigue",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 134,
+        "missing": 9441,
+        "missing_pct": 98.60052219321149,
+        "min": 24.0,
+        "max": 24.0,
+        "mean": 24.0,
+        "median": 24.0
+      }
+    },
+    "DIQ175P": {
+      "code": "DIQ175P",
+      "label": "Anyone could be at risk",
+      "description": "Anyone could be at risk",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "25": "Anyone could be at risk",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 117,
+        "missing": 9458,
+        "missing_pct": 98.7780678851175,
+        "min": 25.0,
+        "max": 25.0,
+        "mean": 25.0,
+        "median": 25.0
+      }
+    },
+    "DIQ175Q": {
+      "code": "DIQ175Q",
+      "label": "Doctor warning",
+      "description": "Doctor warning",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "26": "Doctor warning",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 136,
+        "missing": 9439,
+        "missing_pct": 98.57963446475195,
+        "min": 26.0,
+        "max": 26.0,
+        "mean": 26.0,
+        "median": 26.0
+      }
+    },
+    "DIQ175R": {
+      "code": "DIQ175R",
+      "label": "Other, specify",
+      "description": "Other, specify",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "27": "Other, specify",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 23,
+        "missing": 9552,
+        "missing_pct": 99.7597911227154,
+        "min": 27.0,
+        "max": 27.0,
+        "mean": 27.0,
+        "median": 27.0
+      }
+    },
+    "DIQ175S": {
+      "code": "DIQ175S",
+      "label": "Gestational diabetes",
+      "description": "Gestational diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "28": "Gestational diabetes",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 31,
+        "missing": 9544,
+        "missing_pct": 99.67624020887729,
+        "min": 28.0,
+        "max": 28.0,
+        "mean": 28.0,
+        "median": 28.0
+      }
+    },
+    "DIQ175T": {
+      "code": "DIQ175T",
+      "label": "Frequent urination",
+      "description": "Frequent urination",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "29": "Frequent urination",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 105,
+        "missing": 9470,
+        "missing_pct": 98.90339425587467,
+        "min": 29.0,
+        "max": 29.0,
+        "mean": 29.0,
+        "median": 29.0
+      }
+    },
+    "DIQ175U": {
+      "code": "DIQ175U",
+      "label": "Thirst",
+      "description": "Thirst",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "30": "Thirst",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 79,
+        "missing": 9496,
+        "missing_pct": 99.17493472584856,
+        "min": 30.0,
+        "max": 30.0,
+        "mean": 30.0,
+        "median": 30.0
+      }
+    },
+    "DIQ175V": {
+      "code": "DIQ175V",
+      "label": "Craving for sweet/eating a lot of sugar",
+      "description": "Craving for sweet/eating a lot of sugar",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "31": "Craving for sweet/eating a lot of sugar",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 11,
+        "missing": 9564,
+        "missing_pct": 99.88511749347259,
+        "min": 31.0,
+        "max": 31.0,
+        "mean": 31.0,
+        "median": 31.0
+      }
+    },
+    "DIQ175W": {
+      "code": "DIQ175W",
+      "label": "Medication",
+      "description": "Medication",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "32": "Medication",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4,
+        "missing": 9571,
+        "missing_pct": 99.95822454308095,
+        "min": 32.0,
+        "max": 32.0,
+        "mean": 32.0,
+        "median": 32.0
+      }
+    },
+    "DIQ175X": {
+      "code": "DIQ175X",
+      "label": "Polycystic ovarian syndrome",
+      "description": "Polycystic ovarian syndrome",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "33": "Polycystic ovarian syndrome",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1,
+        "missing": 9574,
+        "missing_pct": 99.98955613577023,
+        "min": 33.0,
+        "max": 33.0,
+        "mean": 33.0,
+        "median": 33.0
+      }
+    },
+    "DIQ180": {
+      "code": "DIQ180",
+      "label": "Had blood tested past three years",
+      "description": "Had blood tested past three years",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6186,
+        "missing": 3389,
+        "missing_pct": 35.39425587467363,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7479793081150987,
+        "median": 2.0
+      }
+    },
+    "DIQ050": {
+      "code": "DIQ050",
+      "label": "Taking insulin now",
+      "description": "Taking insulin now",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.975248041775457,
+        "median": 2.0
+      }
+    },
+    "DID060": {
+      "code": "DID060",
+      "label": "How long taking insulin",
+      "description": "How long taking insulin",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 55": "Range of Values",
+        "666": "Less than 1 month",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 256,
+        "missing": 9319,
+        "missing_pct": 97.32637075718016,
+        "min": 1.0,
+        "max": 999.0,
+        "mean": 29.80078125,
+        "median": 7.0
+      }
+    },
+    "DIQ060U": {
+      "code": "DIQ060U",
+      "label": "Unit of measure (month/year)",
+      "description": "Unit of measure (month/year)",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Months",
+        "2": "Years",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 249,
+        "missing": 9326,
+        "missing_pct": 97.39947780678851,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.8795180722891567,
+        "median": 2.0
+      }
+    },
+    "DIQ065": {
+      "code": "DIQ065",
+      "label": "CHECK ITEM",
+      "description": "CHECK ITEM",
+      "type": "unknown",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null
+    },
+    "DIQ070": {
+      "code": "DIQ070",
+      "label": "Take diabetic pills to lower blood sugar",
+      "description": "Take diabetic pills to lower blood sugar",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1515,
+        "missing": 8060,
+        "missing_pct": 84.177545691906,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.5834983498349835,
+        "median": 2.0
+      }
+    },
+    "DIQ229": {
+      "code": "DIQ229",
+      "label": "CHECK ITEM",
+      "description": "CHECK ITEM",
+      "type": "unknown",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null
+    },
+    "DIQ230": {
+      "code": "DIQ230",
+      "label": "How long ago saw a diabetes specialist",
+      "description": "How long ago saw a diabetes specialist",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "1 year ago or less",
+        "2": "More than 1 year ago but no more than 2 years ago",
+        "3": "More than 2 years ago but no more than 5 years ago",
+        "4": "More than 5 years ago",
+        "5": "Never",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 853,
+        "missing": 8722,
+        "missing_pct": 91.09138381201043,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 3.2356389214536927,
+        "median": 4.0
+      }
+    },
+    "DIQ240": {
+      "code": "DIQ240",
+      "label": "Is there one Dr you see for diabetes",
+      "description": "Is there one Dr you see for diabetes",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 853,
+        "missing": 8722,
+        "missing_pct": 91.09138381201043,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.246189917936694,
+        "median": 1.0
+      }
+    },
+    "DID250": {
+      "code": "DID250",
+      "label": "Past year how many times seen doctor",
+      "description": "Past year how many times seen doctor",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 60": "Range of Values",
+        "0": "None",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 643,
+        "missing": 8932,
+        "missing_pct": 93.2845953002611,
+        "min": 0.0,
+        "max": 9999.0,
+        "mean": 51.13841368584759,
+        "median": 4.0
+      }
+    },
+    "DID260": {
+      "code": "DID260",
+      "label": "How often check blood for glucose/sugar",
+      "description": "How often check blood for glucose/sugar",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 15": "Range of Values",
+        "0": "Never",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 849,
+        "missing": 8726,
+        "missing_pct": 91.1331592689295,
+        "min": 0.0,
+        "max": 15.0,
+        "mean": 1.657243816254417,
+        "median": 1.0
+      }
+    },
+    "DIQ260U": {
+      "code": "DIQ260U",
+      "label": "Unit of measure (day/week/month/year)",
+      "description": "Unit of measure (day/week/month/year)",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Per day",
+        "2": "Per week",
+        "3": "Per month",
+        "4": "Per year",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 661,
+        "missing": 8914,
+        "missing_pct": 93.09660574412533,
+        "min": 1.0,
+        "max": 4.0,
+        "mean": 1.5779122541603632,
+        "median": 1.0
+      }
+    },
+    "DIQ275": {
+      "code": "DIQ275",
+      "label": "Past year Dr checked for A1C",
+      "description": "Past year Dr checked for A1C",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 853,
+        "missing": 8722,
+        "missing_pct": 91.09138381201043,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7080890973036342,
+        "median": 1.0
+      }
+    },
+    "DIQ280": {
+      "code": "DIQ280",
+      "label": "What was your last A1C level",
+      "description": "What was your last A1C level",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "2 to 18.5": "Range of Values",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 641,
+        "missing": 8934,
+        "missing_pct": 93.30548302872063,
+        "min": 2.0,
+        "max": 999.0,
+        "mean": 373.2948517940718,
+        "median": 8.1
+      }
+    },
+    "DIQ291": {
+      "code": "DIQ291",
+      "label": "What does Dr say A1C should be",
+      "description": "What does Dr say A1C should be",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less than 6",
+        "2": "Less than 7",
+        "3": "Less than 8",
+        "4": "Less than 9",
+        "5": "Less than 10",
+        "6": "Provider did not specify goal",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 641,
+        "missing": 8934,
+        "missing_pct": 93.30548302872063,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 19.20436817472699,
+        "median": 2.0
+      }
+    },
+    "DIQ295": {
+      "code": "DIQ295",
+      "label": "CHECK ITEM",
+      "description": "CHECK ITEM",
+      "type": "unknown",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null
+    },
+    "DIQ300S": {
+      "code": "DIQ300S",
+      "label": "What was your recent SBP",
+      "description": "What was your recent SBP",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80 to 201": "Range of Values",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 845,
+        "missing": 8730,
+        "missing_pct": 91.17493472584857,
+        "min": 80.0,
+        "max": 9999.0,
+        "mean": 3701.5479289940827,
+        "median": 140.0
+      }
+    },
+    "DIQ300D": {
+      "code": "DIQ300D",
+      "label": "What was your recent DBP",
+      "description": "What was your recent DBP",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "17 to 251": "Range of Values",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 845,
+        "missing": 8730,
+        "missing_pct": 91.17493472584857,
+        "min": 17.0,
+        "max": 9999.0,
+        "mean": 3947.353846153846,
+        "median": 86.0
+      }
+    },
+    "DID310S": {
+      "code": "DID310S",
+      "label": "What does Dr say SBP should be",
+      "description": "What does Dr say SBP should be",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "80 to 175": "Range of Values",
+        "6666": "Provider did not specify goal",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 846,
+        "missing": 8729,
+        "missing_pct": 91.1644908616188,
+        "min": 80.0,
+        "max": 9999.0,
+        "mean": 4857.955082742316,
+        "median": 6666.0
+      }
+    },
+    "DID310D": {
+      "code": "DID310D",
+      "label": "What does Dr say DBP should be",
+      "description": "What does Dr say DBP should be",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18 to 140": "Range of Values",
+        "6666": "Provider did not specify goal",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 846,
+        "missing": 8729,
+        "missing_pct": 91.1644908616188,
+        "min": 18.0,
+        "max": 9999.0,
+        "mean": 5085.868794326241,
+        "median": 6666.0
+      }
+    },
+    "DID320": {
+      "code": "DID320",
+      "label": "What was most recent LDL number",
+      "description": "What was most recent LDL number",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "4 to 520": "Range of Values",
+        "5555": "Never heard of LDL",
+        "6666": "Never had cholesterol test",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 846,
+        "missing": 8729,
+        "missing_pct": 91.1644908616188,
+        "min": 4.0,
+        "max": 9999.0,
+        "mean": 8199.508274231679,
+        "median": 9999.0
+      }
+    },
+    "DID330": {
+      "code": "DID330",
+      "label": "What does Dr say LDL should be",
+      "description": "What does Dr say LDL should be",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "6 to 205": "Range of Values",
+        "6666": "Provider did not specify goal",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 753,
+        "missing": 8822,
+        "missing_pct": 92.13577023498695,
+        "min": 6.0,
+        "max": 9999.0,
+        "mean": 7777.142098273573,
+        "median": 9999.0
+      }
+    },
+    "DID341": {
+      "code": "DID341",
+      "label": "Past year times Dr check feet for sores",
+      "description": "Past year times Dr check feet for sores",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 34": "Range of Values",
+        "0": "None",
+        "7777": "Refused",
+        "9999": "Don't know/not sure",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 843,
+        "missing": 8732,
+        "missing_pct": 91.1958224543081,
+        "min": 0.0,
+        "max": 9999.0,
+        "mean": 127.5741399762752,
+        "median": 2.0
+      }
+    },
+    "DID350": {
+      "code": "DID350",
+      "label": "How often do you check your feet",
+      "description": "How often do you check your feet",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 20": "Range of Values",
+        "0": "None",
+        "7777": "Refused",
+        "9999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 843,
+        "missing": 8732,
+        "missing_pct": 91.1958224543081,
+        "min": 0.0,
+        "max": 9999.0,
+        "mean": 60.519572953736656,
+        "median": 1.0
+      }
+    },
+    "DIQ350U": {
+      "code": "DIQ350U",
+      "label": "Unit of measure (day/week/month/year)",
+      "description": "Unit of measure (day/week/month/year)",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Per day",
+        "2": "Per week",
+        "3": "Per month",
+        "4": "Per year",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 699,
+        "missing": 8876,
+        "missing_pct": 92.69973890339426,
+        "min": 1.0,
+        "max": 4.0,
+        "mean": 1.4091559370529327,
+        "median": 1.0
+      }
+    },
+    "DIQ360": {
+      "code": "DIQ360",
+      "label": "Last time had pupils dilated for exam",
+      "description": "Last time had pupils dilated for exam",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less than 1 month",
+        "2": "1-12 months",
+        "3": "13-24 months",
+        "4": "Greater than 2 years",
+        "5": "Never",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 846,
+        "missing": 8729,
+        "missing_pct": 91.1644908616188,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 2.6808510638297873,
+        "median": 2.0
+      }
+    },
+    "DIQ080": {
+      "code": "DIQ080",
+      "label": "Diabetes affected eyes/had retinopathy",
+      "description": "Diabetes affected eyes/had retinopathy",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 846,
+        "missing": 8729,
+        "missing_pct": 91.1644908616188,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.8368794326241136,
+        "median": 2.0
+      }
+    }
+  }
+}

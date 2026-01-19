@@ -1,0 +1,78 @@
+Code,Label
+SEQN,SEQN - Respondent sequence number
+MCQ010,MCQ010 - Ever been told you have asthma
+MCQ025,MCQ025 - Age when first had asthma
+MCQ035,MCQ035 - Still have asthma
+MCQ040,MCQ040 - Had asthma attack in past year
+MCQ050,MCQ050 - Emergency care visit for asthma/past yr
+AGQ030,AGQ030 - Did SP have episode of hay fever/past yr
+MCQ053,MCQ053 - Taking treatment for anemia/past 3 mos
+MCQ080,MCQ080 - Doctor ever said you were overweight
+MCQ092,MCQ092 - Ever receive blood transfusion
+MCD093,MCD093 - Year receive blood transfusion
+MCQ149,MCQ149 - Menstrual periods started yet?
+MCQ151,MCQ151 - Age in years at first menstrual period
+RHD018,RHD018 - Estimated age in months at menarche
+MCQ160A,MCQ160A - Doctor ever said you had arthritis
+MCD180A,MCD180A - Age when told you had arthritis
+MCQ195,MCQ195 - Which type of arthritis was it?
+MCQ160N,MCQ160N - Doctor ever told you that you had gout?
+MCD180N,MCD180N - Age when told you had gout
+MCQ160B,MCQ160B - Ever told had congestive heart failure
+MCD180B,MCD180B - Age when told you had heart failure
+MCQ160C,MCQ160C - Ever told you had coronary heart disease
+MCD180C,MCD180C - Age when told had coronary heart disease
+MCQ160D,MCQ160D - Ever told you had angina/angina pectoris
+MCD180D,MCD180D - Age when told you had angina pectoris
+MCQ160E,MCQ160E - Ever told you had heart attack
+MCD180E,MCD180E - Age when told you had heart attack
+MCQ160F,MCQ160F - Ever told you had a stroke
+MCD180F,MCD180F - Age when told you had a stroke
+MCQ160M,MCQ160M - Ever told you had thyroid problem
+MCQ170M,MCQ170M - Do you still have thyroid problem
+MCD180M,MCD180M - Age when told you had thyroid problem
+MCQ160G,MCQ160G - Ever told you had emphysema
+MCD180G,MCD180G - Age when told you had emphysema
+MCQ160K,MCQ160K - Ever told you had chronic bronchitis
+MCQ170K,MCQ170K - Do you still have chronic bronchitis
+MCD180K,MCD180K - Age when told you had chronic bronchitis
+MCQ160O,MCQ160O - Ever told you had COPD?
+MCQ160L,MCQ160L - Ever told you had any liver condition
+MCQ170L,MCQ170L - Do you still have a liver condition
+MCD180L,MCD180L - Age when told you had a liver condition
+MCQ500,MCQ500 - Ever told you had any liver condition
+MCQ510A,MCQ510A - Liver condition: Fatty liver
+MCQ510B,MCQ510B - Liver condition: Liver fibrosis
+MCQ510C,MCQ510C - Liver condition: Liver cirrhosis
+MCQ510D,MCQ510D - Liver condition: Viral hepatitis
+MCQ510E,MCQ510E - Liver condition: Autoimmune hepatitis
+MCQ510F,MCQ510F - Liver condition: Other liver disease
+MCQ515,MCQ515 - CHECK ITEM
+MCQ520,MCQ520 - Abdominal pain during past 12 months?
+MCQ530,MCQ530 - Where was the most uncomfortable pain
+MCQ540,MCQ540 - Ever seen a DR about this pain
+MCQ550,MCQ550 - Has DR ever said you have gallstones
+MCQ560,MCQ560 - Ever had gallbladder surgery?
+MCQ570,MCQ570 - Age when 1st had gallbladder surgery?
+MCQ203,MCQ203 - Ever been told you have jaundice?
+MCQ206,MCQ206 - Age when told you have jaundice?
+MCQ220,MCQ220 - Ever told you had cancer or malignancy
+MCQ230A,MCQ230A - 1st cancer - what kind was it?
+MCD240A,MCD240A - Age 1st cancer (MCQ230a) diagnosed
+MCQ230B,MCQ230B - 2nd cancer - what kind was it?
+MCD240B,MCD240B - Age 2nd cancer (MCQ230b) diagnosed
+MCQ230C,MCQ230C - 3rd cancer - what kind was it?
+MCD240C,MCD240C - Age 3rd cancer (MCQ230c) diagnosed
+MCQ230D,MCQ230D - More than 3 kinds of cancer
+MCQ300B,MCQ300B - Close relative had asthma?
+MCQ300C,MCQ300C - Close relative had diabetes?
+MCQ300A,MCQ300A - Close relative had heart attack?
+MCQ366A,MCQ366A - Doctor told you to control/lose weight
+MCQ366B,MCQ366B - Doctor told you to exercise
+MCQ366C,MCQ366C - Doctor told you to reduce salt in diet
+MCQ366D,MCQ366D - Doctor told you to reduce fat/calories
+MCQ371A,MCQ371A - Are you now controlling or losing weight
+MCQ371B,MCQ371B - Are you now increasing exercise
+MCQ371C,MCQ371C - Are you now reducing salt in diet
+MCQ371D,MCQ371D - Are you now reducing fat in diet
+OSQ230,OSQ230 - Any metal objects inside your body?

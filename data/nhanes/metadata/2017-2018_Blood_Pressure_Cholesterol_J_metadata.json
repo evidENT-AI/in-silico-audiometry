@@ -1,0 +1,291 @@
+{
+  "dataset_info": {
+    "name": "Blood Pressure & Cholesterol",
+    "code": "J",
+    "year_cycle": "2017-2018",
+    "component": "Questionnaire",
+    "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BPQ_J.htm",
+    "download_date": "2026-01-19T12:29:10.280640",
+    "nhanes_version": "2017-2018"
+  },
+  "data_file": {
+    "filename": "2017-2018_Blood_Pressure_Cholesterol_BPQ_J.csv",
+    "path": "csv/Blood_Pressure_Cholesterol/2017-2018_Blood_Pressure_Cholesterol_BPQ_J.csv",
+    "n_rows": 6161,
+    "n_columns": 11
+  },
+  "variables": {
+    "SEQN": {
+      "code": "SEQN",
+      "label": "Respondent sequence number",
+      "description": "Respondent sequence number",
+      "type": "identifier",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6161,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 93705.0,
+        "max": 102956.0,
+        "mean": 98283.56549261484,
+        "median": 98267.0
+      }
+    },
+    "BPQ020": {
+      "code": "BPQ020",
+      "label": "Ever told you had high blood pressure",
+      "description": "Ever told you had high blood pressure",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6161,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.664502515825353,
+        "median": 2.0
+      }
+    },
+    "BPQ030": {
+      "code": "BPQ030",
+      "label": "Told had high blood pressure - 2+ times",
+      "description": "Told had high blood pressure - 2+ times",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2137,
+        "missing": 4024,
+        "missing_pct": 65.31407239084565,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.232101076275152,
+        "median": 1.0
+      }
+    },
+    "BPD035": {
+      "code": "BPD035",
+      "label": "Age told had hypertension",
+      "description": "Age told had hypertension",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "13 to 79": "Range of Values",
+        "12": "12 years or younger",
+        "80": "80 years or older",
+        "777": "Refused",
+        "999": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2137,
+        "missing": 4024,
+        "missing_pct": 65.31407239084565,
+        "min": 12.0,
+        "max": 999.0,
+        "mean": 76.30088909686476,
+        "median": 50.0
+      }
+    },
+    "BPQ040A": {
+      "code": "BPQ040A",
+      "label": "Taking prescription for hypertension",
+      "description": "Taking prescription for hypertension",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2137,
+        "missing": 4024,
+        "missing_pct": 65.31407239084565,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.100140383715489,
+        "median": 1.0
+      }
+    },
+    "BPQ050A": {
+      "code": "BPQ050A",
+      "label": "Now taking prescribed medicine for HBP",
+      "description": "Now taking prescribed medicine for HBP",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1942,
+        "missing": 4219,
+        "missing_pct": 68.47914299626684,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.1503604531410916,
+        "median": 1.0
+      }
+    },
+    "BPQ080": {
+      "code": "BPQ080",
+      "label": "Doctor told you - high cholesterol level",
+      "description": "Doctor told you - high cholesterol level",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6161,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.725369258237299,
+        "median": 2.0
+      }
+    },
+    "BPQ060": {
+      "code": "BPQ060",
+      "label": "Ever had blood cholesterol checked",
+      "description": "Ever had blood cholesterol checked",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4193,
+        "missing": 1968,
+        "missing_pct": 31.94286641778932,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.7309802051037444,
+        "median": 1.0
+      }
+    },
+    "BPQ070": {
+      "code": "BPQ070",
+      "label": "When blood cholesterol last checked",
+      "description": "When blood cholesterol last checked",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less than 1 year ago,",
+        "2": "1 year but less than 2 years ago,",
+        "3": "2 years but less than 5 years ago, or",
+        "4": "5 years or more?",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4543,
+        "missing": 1618,
+        "missing_pct": 26.261970459341015,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.679947171472595,
+        "median": 1.0
+      }
+    },
+    "BPQ090D": {
+      "code": "BPQ090D",
+      "label": "Told to take prescriptn for cholesterol",
+      "description": "Told to take prescriptn for cholesterol",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4543,
+        "missing": 1618,
+        "missing_pct": 26.261970459341015,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.6557340964120626,
+        "median": 2.0
+      }
+    },
+    "BPQ100D": {
+      "code": "BPQ100D",
+      "label": "Now taking prescribed medicine",
+      "description": "Now taking prescribed medicine",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1653,
+        "missing": 4508,
+        "missing_pct": 73.16993994481416,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.2982456140350878,
+        "median": 1.0
+      }
+    }
+  }
+}

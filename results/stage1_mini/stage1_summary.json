@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "n_listeners": 50,
+    "seed": 42,
+    "use_nhanes_priors": false,
+    "timestamp": "2026-01-19T17:07:33.245718",
+    "n_phenotypes": 9,
+    "phenotype_distribution": {
+      "moderate_sloping": 5,
+      "mild_sloping": 4,
+      "severe_profound": 1,
+      "near_normal_mild_hf": 6,
+      "moderate_high_freq": 4,
+      "moderate_severe": 5,
+      "mild_hf_drop": 12,
+      "ski_slope": 7,
+      "normal_hearing": 6
+    }
+  },
+  "h1_efficiency": {
+    "bayes_mean_trials": 55.26,
+    "bayes_std_trials": 8.86974633233668,
+    "mhw_mean_trials": 72.98,
+    "mhw_std_trials": 7.206913347612832,
+    "mean_reduction": 17.72,
+    "reduction_pct": 24.280624828720192,
+    "t_statistic": 10.578874589263053,
+    "p_value": 3.007291540557387e-14,
+    "cohens_d": 2.19274018415437,
+    "bayes_mean_error": 2.023197956554102,
+    "mhw_mean_error": 2.8166666666666664
+  },
+  "h2_reliability": {
+    "icc_bayes": 0.9928970701255979,
+    "icc_bayes_ci": [
+      0.9911411518637556,
+      0.9943662294386428
+    ],
+    "icc_mhw": 0.9772259803132012,
+    "icc_mhw_ci": [
+      0.9714632259022392,
+      0.9817865545115485
+    ],
+    "bayes_bias": 0.31094400256900506,
+    "mhw_bias": 0.26666666666666666,
+    "bayes_loa": [
+      -6.221554945598188,
+      6.843442950736197
+    ],
+    "mhw_loa": [
+      -11.555805821834207,
+      12.089139155167542
+    ]
+  },
+  "h3_phenotype_matching": {
+    "matching_accuracy": 0.24,
+    "cv_n_correct": 12,
+    "cv_n_total": 50,
+    "correlation": -0.6851558880813253,
+    "correlation_p_value": 4.0512477404918795e-08,
+    "correlation_ci": [
+      -0.8091848468073795,
+      -0.5026699769738354
+    ]
+  },
+  "bayesian_analysis": {
+    "h1_bf10": 1157300459769.163,
+    "h1_bf_interpretation": "Extreme evidence for H1",
+    "h1_posterior_mean": 17.450828531957544,
+    "h1_posterior_hdi": [
+      14.005475754309062,
+      20.739379490074505
+    ],
+    "h1_prob_practical": 1.0,
+    "h1_practical_threshold": 5.0,
+    "h2_bf10": 7.449898378072064e+262,
+    "h2_bf_interpretation": "Extreme evidence for H1",
+    "h2_posterior_mean": 2.7431141306055125,
+    "h2_posterior_hdi": [
+      1.527049485590152,
+      4.020554228548811
+    ],
+    "h2_prob_practical": 0.9925,
+    "h2_practical_threshold": 1.0,
+    "icc_bayes_bayesian": 0.9966019990688075,
+    "icc_bayes_bayesian_hdi": [
+      0.9936530895385867,
+      0.9986154406105203
+    ],
+    "icc_bayes_prob_excellent": 1.0,
+    "icc_mhw_bayesian": 0.9885381907625072,
+    "icc_mhw_bayesian_hdi": [
+      0.9862850939233271,
+      0.9910069915586562
+    ],
+    "icc_mhw_prob_excellent": 1.0
+  }
+}

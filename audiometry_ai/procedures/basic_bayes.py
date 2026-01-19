@@ -1,7 +1,12 @@
 """
 Main audiometry testing implementation using basic Bayesian procedure.
+
+Supports two prior modes:
+- Uniform priors (default): No prior information
+- NHANES priors: Population-derived priors conditioned on age, sex, and covariates
 """
 from typing import Dict, List, Tuple, Union, Optional
+from pathlib import Path
 import numpy as np
 from scipy.stats import norm
 from scipy.signal import convolve
@@ -19,6 +24,14 @@ from ..utils.defaults import (
     MAX_ITERATIONS,
     EXPERT_MAX_ITERATIONS
 )
+
+# Optional NHANES prior imports
+try:
+    from ..priors.nhanes_priors import get_threshold_prior
+    from ..priors.conditioning import apply_all_conditioning
+    NHANES_PRIORS_AVAILABLE = True
+except ImportError:
+    NHANES_PRIORS_AVAILABLE = False
 
 class BayesianPureToneAudiometry:
     class TestPhase(Enum):
@@ -38,10 +51,54 @@ class BayesianPureToneAudiometry:
         fn_rate: float = 0.05,  # False negative rate
         ascending_weight: float = 1.0,  # Relative weight for ascending trials
         descending_weight: float = 1.0,  # Relative weight for descending trials
-        random_state: Optional[int] = None
+        random_state: Optional[int] = None,
+        # NHANES prior parameters
+        use_nhanes_priors: bool = False,
+        listener_age: Optional[int] = None,
+        listener_sex: Optional[str] = None,
+        listener_covariates: Optional[Dict] = None,
+        ear: str = 'right',
+        priors_path: Optional[Path] = None
     ):
         """
         Initialize enhanced Bayesian pure-tone audiometry testing.
+
+        Parameters
+        ----------
+        hearing_profile_data : dict
+            True thresholds for simulation {frequency: threshold_dB}
+        response_model_params : dict, optional
+            Parameters for the psychometric response model
+        test_frequencies : list, optional
+            Frequencies to test (default: [250, 500, 1000, 2000, 4000, 8000])
+        max_trials_per_freq : int
+            Maximum trials per frequency before stopping
+        convergence_threshold_db : float
+            Stop when posterior SD falls below this value
+        grid_resolution_db : float
+            Resolution of the probability grid
+        fp_rate : float
+            False positive rate for response model
+        fn_rate : float
+            False negative rate for response model
+        ascending_weight : float
+            Weight for ascending phase trials
+        descending_weight : float
+            Weight for descending phase trials
+        random_state : int, optional
+            Random seed for reproducibility
+        use_nhanes_priors : bool
+            If True, use NHANES-derived population priors
+        listener_age : int, optional
+            Age in years (required if use_nhanes_priors=True)
+        listener_sex : str, optional
+            'male' or 'female' (required if use_nhanes_priors=True)
+        listener_covariates : dict, optional
+            Additional covariates for prior conditioning (diabetes, cv_risk, etc.)
+        ear : str
+            'right' or 'left' ear being tested
+        priors_path : Path, optional
+            Path to NHANES priors file
         """
         self.hearing_profile_data = hearing_profile_data
         self.response_model = HearingResponseModel(**(response_model_params or {}))
@@ -54,7 +111,19 @@ class BayesianPureToneAudiometry:
         self.ascending_weight = ascending_weight
         self.descending_weight = descending_weight
         self.rng = np.random.default_rng(random_state)
-        
+
+        # NHANES prior configuration
+        self.use_nhanes_priors = use_nhanes_priors and NHANES_PRIORS_AVAILABLE
+        self.listener_age = listener_age
+        self.listener_sex = listener_sex
+        self.listener_covariates = listener_covariates or {}
+        self.ear = ear
+        self.priors_path = priors_path
+
+        if self.use_nhanes_priors and not NHANES_PRIORS_AVAILABLE:
+            print("Warning: NHANES priors requested but not available. Using uniform priors.")
+            self.use_nhanes_priors = False
+
         # Initialize probability grids
         self.db_range = np.arange(-10, 121, self.grid_resolution)
         self.priors = {}
@@ -74,28 +143,72 @@ class BayesianPureToneAudiometry:
         
     def _initialize_prior(self, frequency: int) -> np.ndarray:
         """
-        Initialize prior with influence from all previously tested frequencies.
+        Initialize prior distribution for a frequency.
+
+        If use_nhanes_priors=True, uses population-derived NHANES priors
+        conditioned on age, sex, and covariates. Otherwise uses uniform prior.
+
+        Also incorporates influence from previously tested frequencies.
         """
-        # Start with uniform prior
-        prior = np.ones_like(self.db_range) / len(self.db_range)
-        
+        # Get base prior (NHANES or uniform)
+        if self.use_nhanes_priors:
+            prior = self._get_nhanes_prior(frequency)
+        else:
+            prior = np.ones_like(self.db_range, dtype=float) / len(self.db_range)
+
         # Get all previously tested frequencies
         tested_freqs = list(self.posteriors.keys())
         if not tested_freqs:
             return prior
-            
+
         # Combine influences from all previous frequencies
         influence = np.zeros_like(prior)
         total_weight = 0
-        
+
         for tested_freq in tested_freqs:
             weight = self._get_octave_influence(frequency, tested_freq)
             total_weight += weight
             influence += weight * self.posteriors[tested_freq]
-            
+
         if total_weight > 0:
             prior = (influence / total_weight + prior) / 2
-            
+
+        return prior / prior.sum()
+
+    def _get_nhanes_prior(self, frequency: int) -> np.ndarray:
+        """
+        Get NHANES-derived prior for a frequency.
+
+        Uses age-sex stratified KDE priors, optionally conditioned on
+        additional covariates (diabetes, cardiovascular risk, etc.).
+        """
+        if not NHANES_PRIORS_AVAILABLE:
+            return np.ones_like(self.db_range, dtype=float) / len(self.db_range)
+
+        # Get base NHANES prior (stratified by age/sex)
+        prior = get_threshold_prior(
+            age=self.listener_age or 50,  # Default to 50 if not specified
+            sex=self.listener_sex or 'female',  # Default to female
+            frequency=frequency,
+            ear=self.ear,
+            priors_path=self.priors_path,
+            grid=self.db_range
+        )
+
+        # Apply covariate conditioning if available
+        if self.listener_covariates:
+            covariates = {
+                'age': self.listener_age,
+                'sex': self.listener_sex,
+                **self.listener_covariates
+            }
+            prior, _ = apply_all_conditioning(
+                base_prior=prior,
+                grid=self.db_range,
+                frequency=frequency,
+                covariates=covariates
+            )
+
         return prior / prior.sum()
         
     def _get_initial_level(self, prior: np.ndarray) -> float:

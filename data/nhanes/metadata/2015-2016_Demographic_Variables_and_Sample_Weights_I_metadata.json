@@ -1,0 +1,1208 @@
+{
+  "dataset_info": {
+    "name": "Demographic Variables and Sample Weights",
+    "code": "I",
+    "year_cycle": "2015-2016",
+    "component": "Demographics",
+    "documentation_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DEMO_I.htm",
+    "download_date": "2026-01-19T12:29:07.852885",
+    "nhanes_version": "2015-2016"
+  },
+  "data_file": {
+    "filename": "2015-2016_Demographic_Variables_and_Sample_Weights_DEMO_I.csv",
+    "path": "csv/Demographic_Variables_and_Sample_Weights/2015-2016_Demographic_Variables_and_Sample_Weights_DEMO_I.csv",
+    "n_rows": 9971,
+    "n_columns": 47
+  },
+  "variables": {
+    "SEQN": {
+      "code": "SEQN",
+      "label": "Respondent sequence number",
+      "description": "Respondent sequence number",
+      "type": "identifier",
+      "units": "",
+      "values": {},
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 83732.0,
+        "max": 93702.0,
+        "mean": 88717.0,
+        "median": 88717.0
+      }
+    },
+    "SDDSRVYR": {
+      "code": "SDDSRVYR",
+      "label": "Data release cycle",
+      "description": "Data release cycle",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "9": "NHANES 2015-2016 public release",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 9.0,
+        "max": 9.0,
+        "mean": 9.0,
+        "median": 9.0
+      }
+    },
+    "RIDSTATR": {
+      "code": "RIDSTATR",
+      "label": "Interview/Examination status",
+      "description": "Interview/Examination status",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Interviewed only",
+        "2": "Both interviewed and MEC examined",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9571758098485608,
+        "median": 2.0
+      }
+    },
+    "RIAGENDR": {
+      "code": "RIAGENDR",
+      "label": "Gender",
+      "description": "Gender",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Male",
+        "2": "Female",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.5093771938622005,
+        "median": 2.0
+      }
+    },
+    "RIDAGEYR": {
+      "code": "RIDAGEYR",
+      "label": "Age in years at screening",
+      "description": "Age in years at screening",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 79": "Range of Values",
+        "80": "80 years of age and over",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 0.0,
+        "max": 80.0,
+        "mean": 31.899408284023668,
+        "median": 27.0
+      }
+    },
+    "RIDAGEMN": {
+      "code": "RIDAGEMN",
+      "label": "Age in months at screening - 0 to 24 mos",
+      "description": "Age in months at screening - 0 to 24 mos",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 24": "Range of Values",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 695,
+        "missing": 9276,
+        "missing_pct": 93.02978638050347,
+        "min": 0.0,
+        "max": 24.0,
+        "mean": 10.785611510791368,
+        "median": 10.0
+      }
+    },
+    "RIDRETH1": {
+      "code": "RIDRETH1",
+      "label": "Race/Hispanic origin",
+      "description": "Race/Hispanic origin",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Mexican American",
+        "2": "Other Hispanic",
+        "3": "Non-Hispanic White",
+        "4": "Non-Hispanic Black",
+        "5": "Other Race - Including Multi-Racial",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 5.0,
+        "mean": 3.0073212315715576,
+        "median": 3.0
+      }
+    },
+    "RIDRETH3": {
+      "code": "RIDRETH3",
+      "label": "Race/Hispanic origin w/ NH Asian",
+      "description": "Race/Hispanic origin w/ NH Asian",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Mexican American",
+        "2": "Other Hispanic",
+        "3": "Non-Hispanic White",
+        "4": "Non-Hispanic Black",
+        "6": "Non-Hispanic Asian",
+        "7": "Other Race - Including Multi-Racial",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 7.0,
+        "mean": 3.213118042322736,
+        "median": 3.0
+      }
+    },
+    "RIDEXMON": {
+      "code": "RIDEXMON",
+      "label": "Six month time period",
+      "description": "Six month time period",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "November 1 through April 30",
+        "2": "May 1 through October 31",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9544,
+        "missing": 427,
+        "missing_pct": 4.282419015143917,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.5186504610226321,
+        "median": 2.0
+      }
+    },
+    "RIDEXAGM": {
+      "code": "RIDEXAGM",
+      "label": "Age in months at exam - 0 to 19 years",
+      "description": "Age in months at exam - 0 to 19 years",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 239": "Range of Values",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 4060,
+        "missing": 5911,
+        "missing_pct": 59.281917560926686,
+        "min": 0.0,
+        "max": 239.0,
+        "mean": 104.53497536945812,
+        "median": 100.0
+      }
+    },
+    "DMQMILIZ": {
+      "code": "DMQMILIZ",
+      "label": "Served active duty in US Armed Forces",
+      "description": "Served active duty in US Armed Forces",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6149,
+        "missing": 3822,
+        "missing_pct": 38.33116036505867,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9142950073182632,
+        "median": 2.0
+      }
+    },
+    "DMQADFC": {
+      "code": "DMQADFC",
+      "label": "Served in a foreign country",
+      "description": "Served in a foreign country",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 527,
+        "missing": 9444,
+        "missing_pct": 94.71467255039614,
+        "min": 1.0,
+        "max": 7.0,
+        "mean": 1.5294117647058822,
+        "median": 2.0
+      }
+    },
+    "DMDBORN4": {
+      "code": "DMDBORN4",
+      "label": "Country of birth",
+      "description": "Country of birth",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Born in 50 US states or Washington, DC",
+        "2": "Others",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 1.243907331260656,
+        "median": 1.0
+      }
+    },
+    "DMDCITZN": {
+      "code": "DMDCITZN",
+      "label": "Citizenship status",
+      "description": "Citizenship status",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Citizen by birth or naturalization",
+        "2": "Not a citizen of the US",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9969,
+        "missing": 2,
+        "missing_pct": 0.020058168689198675,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 1.1281974119771292,
+        "median": 1.0
+      }
+    },
+    "DMDYRSUS": {
+      "code": "DMDYRSUS",
+      "label": "Length of time in US",
+      "description": "Length of time in US",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less than 1 year",
+        "2": "1 year or more, but less than 5 years",
+        "3": "5 year or more, but less than 10 years",
+        "4": "10 year or more, but less than 15 years",
+        "5": "15 year or more, but less than 20 years",
+        "6": "20 year or more, but less than 30 years",
+        "7": "30 year or more, but less than 40 years",
+        "8": "40 year or more, but less than 50 years",
+        "9": "50 years or more",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2236,
+        "missing": 7735,
+        "missing_pct": 77.57496740547587,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 8.751788908765652,
+        "median": 5.0
+      }
+    },
+    "DMDEDUC3": {
+      "code": "DMDEDUC3",
+      "label": "Education level - Children/Youth 6-19",
+      "description": "Education level - Children/Youth 6-19",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0": "Never attended / kindergarten only",
+        "1": "1st grade",
+        "2": "2nd grade",
+        "3": "3rd grade",
+        "4": "4th grade",
+        "5": "5th grade",
+        "6": "6th grade",
+        "7": "7th grade",
+        "8": "8th grade",
+        "9": "9th grade",
+        "10": "10th grade",
+        "11": "11th grade",
+        "12": "12th grade, no diploma",
+        "13": "High school graduate",
+        "14": "GED or equivalent",
+        "15": "More than high school",
+        "55": "Less than 5th grade",
+        "66": "Less than 9th grade",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 2647,
+        "missing": 7324,
+        "missing_pct": 73.45301373984555,
+        "min": 0.0,
+        "max": 99.0,
+        "mean": 5.988666414809218,
+        "median": 5.0
+      }
+    },
+    "DMDEDUC2": {
+      "code": "DMDEDUC2",
+      "label": "Education level - Adults 20+",
+      "description": "Education level - Adults 20+",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less than 9th grade",
+        "2": "9-11th grade (Includes 12th grade with no diploma)",
+        "3": "High school graduate/GED or equivalent",
+        "4": "Some college or AA degree",
+        "5": "College graduate or above",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 4252,
+        "missing_pct": 42.643666633236386,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 3.4395873404441337,
+        "median": 4.0
+      }
+    },
+    "DMDMARTL": {
+      "code": "DMDMARTL",
+      "label": "Marital status",
+      "description": "Marital status",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Married",
+        "2": "Widowed",
+        "3": "Divorced",
+        "4": "Separated",
+        "5": "Never married",
+        "6": "Living with partner",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5719,
+        "missing": 4252,
+        "missing_pct": 42.643666633236386,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 2.650987934953663,
+        "median": 1.0
+      }
+    },
+    "RIDEXPRG": {
+      "code": "RIDEXPRG",
+      "label": "Pregnancy status at exam",
+      "description": "Pregnancy status at exam",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes, positive lab pregnancy test or self-reported pregnant at exam",
+        "2": "The participant was not pregnant at exam",
+        "3": "Cannot ascertain if the participant is pregnant at exam",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 1288,
+        "missing": 8683,
+        "missing_pct": 87.08253936415605,
+        "min": 1.0,
+        "max": 3.0,
+        "mean": 2.017857142857143,
+        "median": 2.0
+      }
+    },
+    "SIALANG": {
+      "code": "SIALANG",
+      "label": "Language of SP Interview",
+      "description": "Language of SP Interview",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "English",
+        "2": "Spanish",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.1391033998595927,
+        "median": 1.0
+      }
+    },
+    "SIAPROXY": {
+      "code": "SIAPROXY",
+      "label": "Proxy used in SP Interview?",
+      "description": "Proxy used in SP Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9970,
+        "missing": 1,
+        "missing_pct": 0.010029084344599338,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.629989969909729,
+        "median": 2.0
+      }
+    },
+    "SIAINTRP": {
+      "code": "SIAINTRP",
+      "label": "Interpreter used in SP Interview?",
+      "description": "Interpreter used in SP Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.954167084545181,
+        "median": 2.0
+      }
+    },
+    "FIALANG": {
+      "code": "FIALANG",
+      "label": "Language of Family Interview",
+      "description": "Language of Family Interview",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "English",
+        "2": "Spanish",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9642,
+        "missing": 329,
+        "missing_pct": 3.299568749373182,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.1257000622277535,
+        "median": 1.0
+      }
+    },
+    "FIAPROXY": {
+      "code": "FIAPROXY",
+      "label": "Proxy used in Family Interview?",
+      "description": "Proxy used in Family Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9642,
+        "missing": 329,
+        "missing_pct": 3.299568749373182,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9990665836963286,
+        "median": 2.0
+      }
+    },
+    "FIAINTRP": {
+      "code": "FIAINTRP",
+      "label": "Interpreter used in Family Interview?",
+      "description": "Interpreter used in Family Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9642,
+        "missing": 329,
+        "missing_pct": 3.299568749373182,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9579962663347854,
+        "median": 2.0
+      }
+    },
+    "MIALANG": {
+      "code": "MIALANG",
+      "label": "Language of MEC Interview",
+      "description": "Language of MEC Interview",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "English",
+        "2": "Spanish",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6977,
+        "missing": 2994,
+        "missing_pct": 30.027078527730417,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.0852802063924323,
+        "median": 1.0
+      }
+    },
+    "MIAPROXY": {
+      "code": "MIAPROXY",
+      "label": "Proxy used in MEC Interview?",
+      "description": "Proxy used in MEC Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6978,
+        "missing": 2993,
+        "missing_pct": 30.01704944338582,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9918314703353397,
+        "median": 2.0
+      }
+    },
+    "MIAINTRP": {
+      "code": "MIAINTRP",
+      "label": "Interpreter used in MEC Interview?",
+      "description": "Interpreter used in MEC Interview?",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Yes",
+        "2": "No",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 6978,
+        "missing": 2993,
+        "missing_pct": 30.01704944338582,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.9504155918601318,
+        "median": 2.0
+      }
+    },
+    "AIALANGA": {
+      "code": "AIALANGA",
+      "label": "Language of ACASI Interview",
+      "description": "Language of ACASI Interview",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "English",
+        "2": "Spanish",
+        "3": "Asian languages",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5962,
+        "missing": 4009,
+        "missing_pct": 40.20659913749874,
+        "min": 1.0,
+        "max": 3.0,
+        "mean": 1.142569607514257,
+        "median": 1.0
+      }
+    },
+    "DMDHHSIZ": {
+      "code": "DMDHHSIZ",
+      "label": "Total number of people in the Household",
+      "description": "Total number of people in the Household",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7 or more people in the Household",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 7.0,
+        "mean": 3.892989670043125,
+        "median": 4.0
+      }
+    },
+    "DMDFMSIZ": {
+      "code": "DMDFMSIZ",
+      "label": "Total number of people in the Family",
+      "description": "Total number of people in the Family",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7 or more people in the Family",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 7.0,
+        "mean": 3.772640657907933,
+        "median": 4.0
+      }
+    },
+    "DMDHHSZA": {
+      "code": "DMDHHSZA",
+      "label": "# of children 5 years or younger in HH",
+      "description": "# of children 5 years or younger in HH",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3 or more",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 0.0,
+        "max": 3.0,
+        "mean": 0.5542072008825594,
+        "median": 0.0
+      }
+    },
+    "DMDHHSZB": {
+      "code": "DMDHHSZB",
+      "label": "# of children 6-17 years old in HH",
+      "description": "# of children 6-17 years old in HH",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 or more",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 0.0,
+        "max": 4.0,
+        "mean": 1.059673051850366,
+        "median": 1.0
+      }
+    },
+    "DMDHHSZE": {
+      "code": "DMDHHSZE",
+      "label": "# of adults 60 years or older in HH",
+      "description": "# of adults 60 years or older in HH",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3 or more",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 0.0,
+        "max": 3.0,
+        "mean": 0.40467355330458327,
+        "median": 0.0
+      }
+    },
+    "DMDHRGND": {
+      "code": "DMDHRGND",
+      "label": "HH ref person's gender",
+      "description": "HH ref person's gender",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Male",
+        "2": "Female",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.4932303680673955,
+        "median": 1.0
+      }
+    },
+    "DMDHRAGE": {
+      "code": "DMDHRAGE",
+      "label": "HH ref person's age in years",
+      "description": "HH ref person's age in years",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "18 to 79": "Range of Values",
+        "80": "80 years of age and over",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 18.0,
+        "max": 80.0,
+        "mean": 46.178818573864206,
+        "median": 44.0
+      }
+    },
+    "DMDHRBR4": {
+      "code": "DMDHRBR4",
+      "label": "HH ref person's country of birth",
+      "description": "HH ref person's country of birth",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Born in 50 US states or Washington, DC",
+        "2": "Others",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 396,
+        "missing_pct": 3.971517400461338,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 1.4155613577023498,
+        "median": 1.0
+      }
+    },
+    "DMDHREDU": {
+      "code": "DMDHREDU",
+      "label": "HH ref person's education level",
+      "description": "HH ref person's education level",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less Than 9th Grade",
+        "2": "9-11th Grade (Includes 12th grade with no diploma)",
+        "3": "High School Grad/GED or Equivalent",
+        "4": "Some College or AA degree",
+        "5": "College Graduate or above",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9575,
+        "missing": 396,
+        "missing_pct": 3.971517400461338,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 3.4595300261096606,
+        "median": 4.0
+      }
+    },
+    "DMDHRMAR": {
+      "code": "DMDHRMAR",
+      "label": "HH ref person's marital status",
+      "description": "HH ref person's marital status",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Married",
+        "2": "Widowed",
+        "3": "Divorced",
+        "4": "Separated",
+        "5": "Never married",
+        "6": "Living with partner",
+        "77": "Refused",
+        "99": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9909,
+        "missing": 62,
+        "missing_pct": 0.621803229365159,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 2.813502876173176,
+        "median": 1.0
+      }
+    },
+    "DMDHSEDU": {
+      "code": "DMDHSEDU",
+      "label": "HH ref person's spouse's education level",
+      "description": "HH ref person's spouse's education level",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "Less Than 9th Grade",
+        "2": "9-11th Grade (Includes 12th grade with no diploma)",
+        "3": "High School Grad/GED or Equivalent",
+        "4": "Some College or AA degree",
+        "5": "College Graduate or above",
+        "7": "Refused",
+        "9": "Don't Know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 5226,
+        "missing": 4745,
+        "missing_pct": 47.58800521512386,
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 3.5964408725602754,
+        "median": 4.0
+      }
+    },
+    "WTINT2YR": {
+      "code": "WTINT2YR",
+      "label": "Full sample 2 year interview weight",
+      "description": "Full sample 2 year interview weight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "3293.928267 to 233755.84185": "Range of Values",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 3293.928267,
+        "max": 233755.84185,
+        "mean": 31740.150836922476,
+        "median": 20160.468137
+      }
+    },
+    "WTMEC2YR": {
+      "code": "WTMEC2YR",
+      "label": "Full sample 2 year MEC exam weight",
+      "description": "Full sample 2 year MEC exam weight",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "3419.259085 to 242386.66077": "Range of Values",
+        "0": "Not MEC Examined",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 0.0,
+        "max": 242386.660766,
+        "mean": 31740.150836947545,
+        "median": 20281.319287
+      }
+    },
+    "SDMVPSU": {
+      "code": "SDMVPSU",
+      "label": "Masked variance pseudo-PSU",
+      "description": "Masked variance pseudo-PSU",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1 to 2": "Range of Values",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 1.0,
+        "max": 2.0,
+        "mean": 1.485808845652392,
+        "median": 1.0
+      }
+    },
+    "SDMVSTRA": {
+      "code": "SDMVSTRA",
+      "label": "Masked variance pseudo-stratum",
+      "description": "Masked variance pseudo-stratum",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "119 to 133": "Range of Values",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9971,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "min": 119.0,
+        "max": 133.0,
+        "mean": 126.26667335272289,
+        "median": 126.0
+      }
+    },
+    "INDHHIN2": {
+      "code": "INDHHIN2",
+      "label": "Annual household income",
+      "description": "Annual household income",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "$ 0 to $ 4,999",
+        "2": "$ 5,000 to $ 9,999",
+        "3": "$10,000 to $14,999",
+        "4": "$15,000 to $19,999",
+        "5": "$20,000 to $24,999",
+        "6": "$25,000 to $34,999",
+        "7": "$35,000 to $44,999",
+        "8": "$45,000 to $54,999",
+        "9": "$55,000 to $64,999",
+        "10": "$65,000 to $74,999",
+        "12": "$20,000 and Over",
+        "13": "Under $20,000",
+        "14": "$75,000 to $99,999",
+        "15": "$100,000 and Over",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9626,
+        "missing": 345,
+        "missing_pct": 3.460034098886772,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 11.522439227093288,
+        "median": 8.0
+      }
+    },
+    "INDFMIN2": {
+      "code": "INDFMIN2",
+      "label": "Annual family income",
+      "description": "Annual family income",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "1": "$ 0 to $ 4,999",
+        "2": "$ 5,000 to $ 9,999",
+        "3": "$10,000 to $14,999",
+        "4": "$15,000 to $19,999",
+        "5": "$20,000 to $24,999",
+        "6": "$25,000 to $34,999",
+        "7": "$35,000 to $44,999",
+        "8": "$45,000 to $54,999",
+        "9": "$55,000 to $64,999",
+        "10": "$65,000 to $74,999",
+        "12": "$20,000 and Over",
+        "13": "Under $20,000",
+        "14": "$75,000 to $99,999",
+        "15": "$100,000 and Over",
+        "77": "Refused",
+        "99": "Don't know",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 9642,
+        "missing": 329,
+        "missing_pct": 3.299568749373182,
+        "min": 1.0,
+        "max": 99.0,
+        "mean": 11.252126114913919,
+        "median": 8.0
+      }
+    },
+    "INDFMPIR": {
+      "code": "INDFMPIR",
+      "label": "Ratio of family income to poverty",
+      "description": "Ratio of family income to poverty",
+      "type": "categorical",
+      "units": "",
+      "values": {
+        "0 to 4.99": "Range of Values",
+        "5": "Value greater than or equal to 5.00",
+        ".": "Missing"
+      },
+      "notes": "",
+      "range": null,
+      "data_stats": {
+        "count": 8919,
+        "missing": 1052,
+        "missing_pct": 10.550596730518503,
+        "min": 0.0,
+        "max": 5.0,
+        "mean": 2.269276824756139,
+        "median": 1.82
+      }
+    }
+  }
+}

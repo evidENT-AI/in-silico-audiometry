@@ -1,4 +1,4 @@
-from hearing_level_gen import *
+from ..simulation.hearing_level_gen import *
 
 def respond(test_level, true_level):
     """Simulates a patient's response to a tone presentation.

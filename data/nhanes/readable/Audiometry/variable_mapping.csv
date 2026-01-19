@@ -1,0 +1,91 @@
+Code,Label
+SEQN,SEQN - Respondent sequence number
+AUAEXSTS,AUAEXSTS - Status of an Audio Exam
+AUAEXCMT,AUAEXCMT - Comment code for an Audio Exam
+AUQ011,"AUQ011 - Have Ear Tube, Right or Left Ear?"
+AUQ540,"AUQ540 - Had Cold, Runny Nose, Earache Today?"
+AUQ550,"AUQ550 - Had Cold, Runny Nose, Earache Yesterday?"
+AUQ550A,AUQ550A - Had Cold?
+AUQ550B,AUQ550B - Had Runny Nose?
+AUQ550C,"AUQ550C - Earache, Right Ear?"
+AUQ550D,"AUQ550D - Earache, Left Ear?"
+AUQ550E,"AUQ550E - Earache, Both Ears?"
+AUQ560,AUQ560 - Listened to Loud Sound Today?
+AUQ570,AUQ570 - Listened to Loud Sound Yesterday?
+AUQ580,AUQ580 - Hours Since Loud Sound Ended?
+AUQ590,AUQ590 - Listened to Music with Earphones Today?
+AUQ600,AUQ600 - Listened to Music w/Earphones Yesterday?
+AUQ610,AUQ610 - Hours Since Stopped Listening?
+AUQ051,AUQ051 - Self Reported Better Ear
+AUQ010,"AUQ010 - Have Ear Tube, Right or Left Ear?"
+AUQ020,"AUQ020 - Had Cold, Sinus or Earache Last 24 Hrs?"
+AUQ020A,AUQ020A - Had Cold Last 24 Hrs?
+AUQ020B,AUQ020B - Had Sinus Problem Last 24 Hours?
+AUQ020C,"AUQ020C - Earache Last 24 Hours, Right?"
+AUQ020D,"AUQ020D - Earache Last 24 Hours, Left?"
+AUQ020E,"AUQ020E - Earache Last 24 Hours, Both?"
+AUQ031,AUQ031 - Exposed to Loud Noise Last 24 Hrs?
+AUQ041,AUQ041 - Hours Since Noise Ended?
+AUQ520,AUQ520 - Listened to Music w/Earphone Last 24 Hrs
+AUQ530,AUQ530 - Hours Since Music Ended?
+AUQ050,AUQ050 - Self Reported Better Ear
+AUXOTSPL,"AUXOTSPL - Normal Otoscopy, Left Ear?"
+AUXLOEXC,"AUXLOEXC - Excessive Cerumen, Left Ear"
+AUXLOIMC,"AUXLOIMC - Impacted Cerumen, Left Ear"
+AUXLOCOL,"AUXLOCOL - Collapsing Ear Canals, Left Ear"
+AUXLOABN,"AUXLOABN - Other Exam Abnormality, Left Ear?"
+AUDLOABC,"AUDLOABC - Comment,Other Exam Abnormality Left Ear"
+AUXROTSP,"AUXROTSP - Normal Otoscopy, Right Ear?"
+AUXROEXC,"AUXROEXC - Excessive Cerumen, Right Ear"
+AUXROIMC,"AUXROIMC - Impacted Cerumen, Right Ear"
+AUXROCOL,"AUXROCOL - Collapsing Ear Canals, Right Ear"
+AUXROABN,"AUXROABN - Other Exam Abnormality, Right Ear?"
+AUDROABC,"AUDROABC - Comment,Other Exam Abnormality Right Ear"
+AUXTMEPR,"AUXTMEPR - Middle Ear Pressure-Tymp, Rt Ear in daPa"
+AUXTPVR,"AUXTPVR - Physical Volume-Tymp, Right Ear in cc"
+AUXTWIDR,"AUXTWIDR - Tympanometric width, right ear"
+AUXTCOMR,"AUXTCOMR - Compliance (tympanometry), right ear"
+AUXTMEPL,"AUXTMEPL - Middle Ear Pressure, Tymp, Left in daPa"
+AUXTPVL,"AUXTPVL - Physical Volume-Tymp, Left ear in cc"
+AUXTWIDL,"AUXTWIDL - Tympanometric width, left ear"
+AUXTCOML,"AUXTCOML - Compliance (tympanometry), left ear"
+AUAEAR,AUAEAR - Which ear tested first?
+AUAMODE,AUAMODE - Audio Test Mode-Manual/Automatic/Mixed
+AUAFMANL,"AUAFMANL - Frequency, Switch to Manual Mode, Left"
+AUAFMANR,"AUAFMANR - Frequency, Switch to Manual Mode, Right"
+AUXU1K1R,AUXU1K1R - Right threshold @ 1000Hz (db)
+AUXU500R,AUXU500R - Right threshold @ 500Hz (db)
+AUXU1K2R,AUXU1K2R - Right Threshold @ 1000Hz-2nd Read (db)
+AUXU2KR,AUXU2KR - Right threshold @ 2000Hz (db)
+AUXU3KR,AUXU3KR - Right threshold @ 3000Hz (db)
+AUXU4KR,AUXU4KR - Right threshold @ 4000Hz (db)
+AUXU6KR,AUXU6KR - Right threshold @ 6000Hz (db)
+AUXU8KR,AUXU8KR - Right threshold @ 8000Hz (db)
+AUXU1K1L,AUXU1K1L - Left threshold @ 1000Hz (db)
+AUXU500L,AUXU500L - Left threshold @ 500Hz (db)
+AUXU1K2L,AUXU1K2L - Left threshold @ 1000Hz-2nd Read (db)
+AUXU2KL,AUXU2KL - Left threshold @ 2000Hz (db)
+AUXU3KL,AUXU3KL - Left threshold @ 3000Hz (db)
+AUXU4KL,AUXU4KL - Left threshold @ 4000Hz (db)
+AUXU6KL,AUXU6KL - Left threshold @ 6000Hz (db)
+AUXU8KL,AUXU8KL - Left threshold @ 8000Hz (db)
+AUXR1K1R,AUXR1K1R - Right retest threshold @ 1000Hz (db)
+AUXR5CR,AUXR5CR - Right retest threshold @ 500Hz (db)
+AUXR1K2R,AUXR1K2R - Right Retest Threshold 1000Hz-2nd Read
+AUXR2KR,AUXR2KR - Right retest threshold @ 2000Hz (db)
+AUXR3KR,AUXR3KR - Right retest threshold @ 3000Hz (db)
+AUXR4KR,AUXR4KR - Right retest threshold @ 4000Hz (db)
+AUXR6KR,AUXR6KR - Right retest threshold @ 6000Hz (db)
+AUXR8KR,AUXR8KR - Right retest threshold @ 8000Hz (db)
+AUXR1K1L,AUXR1K1L - Left retest threshold @ 1000Hz (db)
+AUXR5CL,AUXR5CL - Left retest threshold @ 500Hz (db)
+AUXR1K2L,AUXR1K2L - Left Retest Threshold 1000Hz-2nd Read
+AUXR2KL,AUXR2KL - Left retest threshold @ 2000Hz (db)
+AUXR3KL,AUXR3KL - Left retest threshold @ 3000Hz (db)
+AUXR4KL,AUXR4KL - Left retest threshold @ 4000Hz (db)
+AUXR6KL,AUXR6KL - Left retest threshold @ 6000Hz (db)
+AUXR8KL,AUXR8KL - Left retest threshold @ 8000Hz (db)
+AUAREQC,AUAREQC - Right Ear Tympanogram Quality Code
+AUATYMTR,"AUATYMTR - Tympanogram Type, Right Ear"
+AUALEQC,AUALEQC - Left Ear Tympanogram Quality Code
+AUATYMTL,"AUATYMTL - Tympanogram Type, Left Ear"

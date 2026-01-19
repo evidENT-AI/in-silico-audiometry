@@ -1,0 +1,475 @@
+# =============================================================================
+# Stage 1 Manuscript Configuration
+# In-Silico Audiometry: Bayesian vs Modified Hughson-Westlake
+# Nature Registered Report
+# =============================================================================
+#
+# This configuration implements the full Stage 1 manuscript simulation protocol:
+# - 2,200 virtual listeners across 11 audiometric phenotypes
+# - NHANES-derived population priors
+# - Three primary hypotheses (H1, H2, H3)
+# - Publication-quality figure generation
+#
+# Usage:
+#   python scripts/run_stage1_simulation.py --config configs/stage1_manuscript.yaml
+#
+# =============================================================================
+
+simulation:
+  name: "Stage 1 Manuscript: Bayesian vs mHW Audiometry"
+  version: "1.0.0"
+  description: >
+    Complete simulation protocol for Stage 1 Registered Report.
+    Tests efficiency (H1), reliability (H2), and phenotype matching (H3).
+
+  # Sample size per manuscript protocol
+  n_listeners: 2200
+
+  # Test-retest design for reliability (H2)
+  n_repeats: 2
+
+  # Reproducibility
+  random_seed: 42
+
+  # Parallel processing
+  parallel_jobs: 8
+  use_multiprocessing: true
+
+# =============================================================================
+# PHENOTYPE CONFIGURATION (11 phenotypes from manuscript Table 1)
+# =============================================================================
+
+phenotypes:
+  # Toggle for GMM vs placeholder mode
+  use_gmm: false  # Set to true when GMM models are available
+  gmm_model_dir: "data/phenotype_gmms"
+
+  # Phenotype definitions with target sample sizes
+  # Total = 2200 (matches manuscript protocol)
+  definitions:
+    # Within normal limits (15%)
+    flat_normal:
+      n_target: 330
+      category: normal
+      proportion: 0.15
+
+    # Age-related / presbycusis (35%)
+    mild_hf_sloping:
+      n_target: 264
+      category: presbycusis
+      proportion: 0.12
+    moderate_hf_sloping:
+      n_target: 220
+      category: presbycusis
+      proportion: 0.10
+    severe_hf_sloping:
+      n_target: 176
+      category: presbycusis
+      proportion: 0.08
+    ski_slope:
+      n_target: 110
+      category: presbycusis
+      proportion: 0.05
+
+    # Noise-induced (18%)
+    notch_4k_mild:
+      n_target: 220
+      category: noise_induced
+      proportion: 0.10
+    notch_4k_moderate:
+      n_target: 176
+      category: noise_induced
+      proportion: 0.08
+
+    # Conductive (14%)
+    flat_mild_conductive:
+      n_target: 176
+      category: conductive
+      proportion: 0.08
+    low_freq_ascending:
+      n_target: 132
+      category: conductive
+      proportion: 0.06
+
+    # Mixed configurations (18%)
+    cookie_bite:
+      n_target: 176
+      category: mixed
+      proportion: 0.08
+    reverse_slope:
+      n_target: 220
+      category: mixed
+      proportion: 0.10
+
+# =============================================================================
+# LISTENER PSYCHOMETRIC PARAMETERS
+# =============================================================================
+
+psychometric:
+  # Slope (σ): Steepness of psychometric function
+  # LogNormal(log(8), 0.3) -> mean ≈ 8 dB
+  slope:
+    distribution: lognormal
+    location: 2.079  # log(8)
+    scale: 0.3
+    bounds: [3, 20]  # Clinical range
+
+  # False positive rate (α): Respond when not hearing
+  # Beta(1.5, 28.5) -> mean = 0.05
+  false_positive_rate:
+    distribution: beta
+    alpha: 1.5
+    beta: 28.5
+    bounds: [0.01, 0.20]
+
+  # False negative rate (β): Fail to respond when hearing
+  # Beta(1, 49) -> mean = 0.02
+  false_negative_rate:
+    distribution: beta
+    alpha: 1.0
+    beta: 49.0
+    bounds: [0.01, 0.15]
+
+  # Covariate adjustments (manuscript-specified)
+  covariate_effects:
+    tinnitus:
+      apply: true
+      alpha_increase: 0.05  # At frequencies within ±1 octave of tinnitus pitch
+    cognitive_concerns:
+      apply: true
+      beta_increase: 0.03
+    first_audiogram:
+      apply: true
+      slope_increase: 2.0  # dB
+
+# =============================================================================
+# TEST FREQUENCIES
+# =============================================================================
+
+frequencies:
+  standard: [250, 500, 1000, 2000, 4000, 8000]
+  extended: [250, 500, 1000, 2000, 3000, 4000, 6000, 8000]
+  use_extended: false  # Use standard 6-frequency protocol
+
+# =============================================================================
+# PROCEDURE CONFIGURATIONS
+# =============================================================================
+
+procedures:
+  # Modified Hughson-Westlake (BSA 2018 standard)
+  mhw:
+    name: "Modified Hughson-Westlake (BSA 2018)"
+    starting_level: 40  # dB HL
+    step_size_down: 10  # dB decrements
+    step_size_up: 5     # dB increments
+    threshold_criterion: "2_of_3_ascending"
+    max_reversals: 10
+    max_trials_per_freq: 20
+    ascending_phase_required: true
+
+  # Bayesian Pure-Tone Audiometry
+  bayesian:
+    name: "Bayesian Pure-Tone Audiometry"
+
+    # Prior configuration
+    priors:
+      # Use NHANES-derived population priors
+      use_nhanes: true
+      nhanes_path: "data/priors/nhanes_stratified_priors.pkl"
+
+      # Fallback if NHANES not available
+      fallback: "uniform"
+
+      # Prior range (dB HL)
+      range: [-10, 120]
+
+      # Grid resolution
+      resolution: 1.0  # dB
+
+    # Convergence criterion
+    convergence_threshold: 5.0  # Stop when posterior SD < 5 dB
+
+    # Maximum trials
+    max_trials_per_freq: 30
+
+    # Active learning
+    active_learning: true
+    selection_method: "max_information_gain"
+
+    # Error rate modeling
+    model_error_rates: true
+    fp_rate_prior: 0.02
+    fn_rate_prior: 0.05
+
+    # Phase weights (for clinical compatibility)
+    ascending_weight: 1.0
+    descending_weight: 1.0
+
+    # Output uncertainty quantification
+    output_uncertainty: true
+
+# =============================================================================
+# HYPOTHESIS TESTING CONFIGURATION
+# =============================================================================
+
+hypotheses:
+  # H1: Efficiency - Bayesian requires fewer trials
+  h1_efficiency:
+    description: "Bayesian audiometry requires fewer trials than mHW while maintaining equivalent accuracy"
+    primary_metric: "trial_count_reduction"
+
+    # Target: 20% reduction (manuscript-specified)
+    expected_effect: 0.20
+    minimum_detectable_effect: 0.10
+
+    # Success criterion: ±5 dB accuracy maintained
+    accuracy_criterion: 5.0  # dB
+
+    tests:
+      - type: "paired_t_test"
+        alternative: "less"  # N_Bayes < N_mHW
+        alpha: 0.05
+      - type: "wilcoxon_signed_rank"
+        alternative: "less"
+      - type: "equivalence_test"  # For accuracy
+        bounds: [-5, 5]  # dB
+
+  # H2: Reliability - Better test-retest consistency
+  h2_reliability:
+    description: "Bayesian audiometry achieves better test-retest reliability"
+    primary_metric: "test_retest_sd"
+
+    # ICC interpretation thresholds (Koo & Li, 2016)
+    icc_thresholds:
+      poor: 0.5
+      moderate: 0.75
+      good: 0.9
+      excellent: 1.0
+
+    # Target: ICC > 0.9 for Bayesian
+    expected_icc_bayes: 0.92
+    expected_icc_mhw: 0.85
+
+    tests:
+      - type: "icc_comparison"
+        icc_type: "ICC(2,1)"  # Two-way random effects, absolute agreement
+      - type: "bland_altman"
+        acceptable_loa: 10.0  # ±10 dB limits of agreement
+
+  # H3: Phenotype Matching - Individual efficiency gains correlate with predictions
+  h3_phenotype_matching:
+    description: "Predicted efficiency gains from phenotype matching correlate with observed gains"
+    primary_metric: "correlation_predicted_observed"
+
+    # Target correlation
+    expected_correlation: 0.6
+    minimum_correlation: 0.3
+
+    # Feature sets for matching
+    features:
+      audiogram:
+        - slope_low       # 250-1000 Hz
+        - slope_high      # 1000-8000 Hz
+        - notch_depth     # 4 kHz
+        - asymmetry       # L-R difference
+        - pta_4freq       # 500, 1000, 2000, 4000 Hz average
+      response:
+        - estimated_fp_rate
+        - response_variability
+      efficiency:
+        - trials_mhw
+        - trials_bayes
+        - efficiency_gain
+
+    # Matching algorithm
+    algorithm: "mahalanobis_distance"
+    cross_validation:
+      n_folds: 5
+      stratified: true
+
+    tests:
+      - type: "pearson_correlation"
+        alpha: 0.05
+        ci: 0.95
+      - type: "spearman_correlation"
+        alpha: 0.05
+
+# =============================================================================
+# STATISTICAL ANALYSIS CONFIGURATION
+# =============================================================================
+
+analysis:
+  alpha_level: 0.05
+  power: 0.90  # Target statistical power
+  effect_size_threshold: 0.5  # Cohen's d for practical significance
+  confidence_intervals: 0.95
+
+  # Multiple comparison correction
+  multiple_comparison:
+    method: "bonferroni"
+    family_wise_error_rate: 0.05
+
+  # Bootstrap settings (for CIs and significance)
+  bootstrap:
+    n_iterations: 10000
+    ci_method: "bca"  # Bias-corrected and accelerated
+
+  # Per-frequency analysis
+  frequency_wise:
+    enabled: true
+    correction: "benjamini_hochberg"
+
+# =============================================================================
+# OUTPUT CONFIGURATION
+# =============================================================================
+
+output:
+  # Output directory
+  base_dir: "results/stage1_manuscript"
+  timestamp_subdirs: true
+
+  # Data exports
+  save_individual_results: true
+  save_aggregate_stats: true
+  save_progression_patterns: true
+  save_pdf_histories: true  # Posterior evolution
+
+  # File formats
+  data_format: "parquet"  # Efficient columnar storage
+  summary_format: "json"
+
+  # Publication tables
+  export_publication_tables: true
+  table_format: "latex"  # LaTeX-formatted tables
+
+  # Supplementary data
+  export_supplementary: true
+  supplementary_formats: ["csv", "json"]
+
+# =============================================================================
+# VISUALIZATION CONFIGURATION
+# =============================================================================
+
+visualization:
+  # General settings
+  dpi: 300
+  figure_format: ["png", "pdf", "svg"]
+  color_palette: "colorblind_friendly"
+  style: "publication"
+
+  # Font settings (Nature requirements)
+  font_family: "Arial"
+  font_size:
+    title: 10
+    axis_label: 9
+    tick_label: 8
+    legend: 8
+    annotation: 7
+
+  # Figure dimensions (Nature column widths)
+  figure_sizes:
+    single_column: [3.5, 2.625]    # inches
+    double_column: [7.0, 5.25]
+    full_page: [7.0, 9.0]
+
+  # Manuscript figures (as specified in Stage 1)
+  manuscript_figures:
+    # Figure 1: Population and phenotype overview
+    fig1_population_overview:
+      enabled: true
+      size: "double_column"
+      panels:
+        - phenotype_distribution
+        - example_audiograms_by_category
+        - parameter_distributions
+
+    # Figure 2: Efficiency results (H1)
+    fig2_efficiency:
+      enabled: true
+      size: "double_column"
+      panels:
+        - trial_count_comparison_boxplot
+        - trial_count_by_phenotype_heatmap
+        - accuracy_vs_trials_scatter
+        - effect_size_forest_plot
+
+    # Figure 3: Reliability results (H2)
+    fig3_reliability:
+      enabled: true
+      size: "double_column"
+      panels:
+        - bland_altman_comparison
+        - icc_comparison_bar
+        - test_retest_scatter
+        - reliability_by_phenotype
+
+    # Figure 4: Phenotype matching results (H3)
+    fig4_phenotype_matching:
+      enabled: true
+      size: "double_column"
+      panels:
+        - predicted_vs_observed_scatter
+        - matching_accuracy_confusion
+        - feature_importance
+        - correlation_ci_plot
+
+    # Figure 5: Procedure comparison summary
+    fig5_summary:
+      enabled: true
+      size: "single_column"
+      panels:
+        - hypothesis_summary_table
+        - key_metrics_radar
+
+  # Supplementary figures
+  supplementary_figures:
+    # Individual progression examples
+    progression_examples:
+      enabled: true
+      n_examples_per_phenotype: 3
+
+    # Posterior evolution
+    pdf_evolution:
+      enabled: true
+      n_examples: 20
+
+    # Sensitivity analyses
+    sensitivity:
+      enabled: true
+      parameters:
+        - convergence_threshold
+        - prior_type
+        - error_rates
+
+# =============================================================================
+# VALIDATION AND QUALITY CONTROL
+# =============================================================================
+
+validation:
+  # Sanity checks during simulation
+  check_audiogram_validity: true
+  check_threshold_bounds: true
+  check_convergence: true
+
+  # Reproducibility verification
+  verify_reproducibility: true
+  reproducibility_seeds: [42, 123, 456]
+
+  # Ground truth tracking
+  save_ground_truth: true
+  compare_to_ground_truth: true
+
+  # Parameter validation
+  validate_psychometric_params: true
+  validate_prior_coverage: true
+
+# =============================================================================
+# LOGGING
+# =============================================================================
+
+logging:
+  level: "INFO"
+  file: "stage1_simulation.log"
+  console: true
+  include_timestamps: true
+  log_progress_every: 100  # listeners

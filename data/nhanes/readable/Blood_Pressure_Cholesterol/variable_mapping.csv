@@ -1,0 +1,12 @@
+Code,Label
+SEQN,SEQN - Respondent sequence number
+BPQ020,BPQ020 - Ever told you had high blood pressure
+BPQ030,BPQ030 - Told had high blood pressure - 2+ times
+BPD035,BPD035 - Age told had hypertension
+BPQ040A,BPQ040A - Taking prescription for hypertension
+BPQ050A,BPQ050A - Now taking prescribed medicine for HBP
+BPQ080,BPQ080 - Doctor told you - high cholesterol level
+BPQ060,BPQ060 - Ever had blood cholesterol checked
+BPQ070,BPQ070 - When blood cholesterol last checked
+BPQ090D,BPQ090D - Told to take prescriptn for cholesterol
+BPQ100D,BPQ100D - Now taking prescribed medicine
