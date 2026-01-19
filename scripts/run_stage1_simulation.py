@@ -24,6 +24,9 @@ from dataclasses import dataclass, asdict
 from collections import defaultdict
 import warnings
 from tqdm import tqdm
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import multiprocessing
+import os
 
 # Local imports
 from audiometry_ai.simulation.phenotypes import (
@@ -205,6 +208,115 @@ def run_listener_simulation(
         false_positive_rate=psych_params['false_positive_rate'],
         false_negative_rate=psych_params['false_negative_rate'],
     )
+
+
+def _run_listener_simulation_wrapper(args: Tuple) -> ListenerResult:
+    """
+    Wrapper function for parallel execution of listener simulations.
+
+    This wrapper unpacks arguments for use with ProcessPoolExecutor.
+    """
+    (listener_id, audiogram, phenotype, category, psych_params,
+     frequencies, seed, use_nhanes_priors) = args
+
+    return run_listener_simulation(
+        listener_id=listener_id,
+        audiogram=audiogram,
+        phenotype=phenotype,
+        category=category,
+        psych_params=psych_params,
+        frequencies=frequencies,
+        seed=seed,
+        use_nhanes_priors=use_nhanes_priors,
+    )
+
+
+def run_parallel_simulations(
+    population: List[Dict],
+    psych_params_list: List[Dict],
+    frequencies: List[int],
+    base_seed: int,
+    use_nhanes_priors: bool,
+    n_workers: int,
+    session_offset: int = 0,
+    verbose: bool = True,
+    desc: str = "Running simulations"
+) -> List[ListenerResult]:
+    """
+    Run listener simulations in parallel across multiple CPU cores.
+
+    Parameters
+    ----------
+    population : list of dict
+        List of listener dictionaries with audiogram, phenotype, etc.
+    psych_params_list : list of dict
+        Psychometric parameters for each listener
+    frequencies : list of int
+        Test frequencies
+    base_seed : int
+        Base random seed (each listener gets base_seed + index)
+    use_nhanes_priors : bool
+        Whether to use NHANES priors
+    n_workers : int
+        Number of parallel workers (0 or 1 for sequential)
+    session_offset : int
+        Offset to add to seed for different test sessions
+    verbose : bool
+        Print progress
+    desc : str
+        Description for progress bar
+
+    Returns
+    -------
+    list of ListenerResult
+        Results for all listeners in original order
+    """
+    n_listeners = len(population)
+
+    # Prepare arguments for each listener
+    args_list = [
+        (
+            listener['listener_id'],
+            listener['audiogram'],
+            listener['phenotype'],
+            listener['category'],
+            psych_params,
+            frequencies,
+            base_seed + session_offset + i,
+            use_nhanes_priors,
+        )
+        for i, (listener, psych_params) in enumerate(zip(population, psych_params_list))
+    ]
+
+    # Sequential execution for debugging or single worker
+    if n_workers <= 1:
+        results = []
+        for args in tqdm(args_list, disable=not verbose, desc=desc):
+            results.append(_run_listener_simulation_wrapper(args))
+        return results
+
+    # Parallel execution
+    results = [None] * n_listeners
+
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
+        # Submit all tasks
+        future_to_idx = {
+            executor.submit(_run_listener_simulation_wrapper, args): idx
+            for idx, args in enumerate(args_list)
+        }
+
+        # Collect results with progress bar
+        with tqdm(total=n_listeners, disable=not verbose, desc=desc) as pbar:
+            for future in as_completed(future_to_idx):
+                idx = future_to_idx[future]
+                try:
+                    results[idx] = future.result()
+                except Exception as e:
+                    print(f"Error processing listener {idx}: {e}")
+                    raise
+                pbar.update(1)
+
+    return results
 
 
 def compute_h1_statistics(
@@ -468,6 +580,7 @@ def run_simulation(
     seed: int = 42,
     output_dir: Path = None,
     use_nhanes_priors: bool = False,
+    n_workers: int = None,
     verbose: bool = True
 ) -> Dict:
     """
@@ -483,6 +596,9 @@ def run_simulation(
         Directory to save results
     use_nhanes_priors : bool
         Whether to use NHANES priors for Bayesian procedure
+    n_workers : int, optional
+        Number of parallel workers. If None, uses all available cores.
+        Set to 1 for sequential execution (useful for debugging).
     verbose : bool
         Print progress
 
@@ -491,6 +607,11 @@ def run_simulation(
     dict
         Complete simulation results
     """
+    # Determine number of workers
+    if n_workers is None:
+        n_workers = max(1, multiprocessing.cpu_count() - 1)  # Leave one core free
+    n_workers = max(1, n_workers)
+
     rng = np.random.default_rng(seed)
 
     if output_dir is None:
@@ -522,6 +643,7 @@ def run_simulation(
         print(f"Total listeners: {n_listeners}")
         print(f"Random seed: {seed}")
         print(f"NHANES priors: {use_nhanes_priors}")
+        print(f"Parallel workers: {n_workers} {'(sequential)' if n_workers == 1 else ''}")
         print(f"\nPhenotype distribution:")
         for name, n in n_per_phenotype.items():
             print(f"  {name}: {n}")
@@ -535,47 +657,35 @@ def run_simulation(
     # Generate psychometric parameters
     psych_params_list = [psych_gen.generate(rng) for _ in population]
 
-    # Run test session 1
+    # Run test session 1 (parallel)
     if verbose:
         print("\nRunning test session 1...")
-    test1_results = []
-    for i, (listener, psych_params) in enumerate(tqdm(
-        zip(population, psych_params_list),
-        total=len(population),
-        disable=not verbose
-    )):
-        result = run_listener_simulation(
-            listener_id=listener['listener_id'],
-            audiogram=listener['audiogram'],
-            phenotype=listener['phenotype'],
-            category=listener['category'],
-            psych_params=psych_params,
-            frequencies=FREQUENCIES,
-            seed=seed + i,
-            use_nhanes_priors=use_nhanes_priors,
-        )
-        test1_results.append(result)
+    test1_results = run_parallel_simulations(
+        population=population,
+        psych_params_list=psych_params_list,
+        frequencies=FREQUENCIES,
+        base_seed=seed,
+        use_nhanes_priors=use_nhanes_priors,
+        n_workers=n_workers,
+        session_offset=0,
+        verbose=verbose,
+        desc="Test session 1"
+    )
 
-    # Run test session 2 (test-retest)
+    # Run test session 2 (test-retest, parallel)
     if verbose:
         print("\nRunning test session 2 (retest)...")
-    test2_results = []
-    for i, (listener, psych_params) in enumerate(tqdm(
-        zip(population, psych_params_list),
-        total=len(population),
-        disable=not verbose
-    )):
-        result = run_listener_simulation(
-            listener_id=listener['listener_id'],
-            audiogram=listener['audiogram'],
-            phenotype=listener['phenotype'],
-            category=listener['category'],
-            psych_params=psych_params,
-            frequencies=FREQUENCIES,
-            seed=seed + len(population) + i,  # Different seed for retest
-            use_nhanes_priors=use_nhanes_priors,
-        )
-        test2_results.append(result)
+    test2_results = run_parallel_simulations(
+        population=population,
+        psych_params_list=psych_params_list,
+        frequencies=FREQUENCIES,
+        base_seed=seed,
+        use_nhanes_priors=use_nhanes_priors,
+        n_workers=n_workers,
+        session_offset=len(population),  # Different seeds for retest
+        verbose=verbose,
+        desc="Test session 2"
+    )
 
     # Compute statistics
     if verbose:
@@ -600,6 +710,7 @@ def run_simulation(
             'n_listeners': n_listeners,
             'seed': seed,
             'use_nhanes_priors': use_nhanes_priors,
+            'n_workers': n_workers,
             'timestamp': datetime.now().isoformat(),
             'n_phenotypes': len(PHENOTYPE_DEFINITIONS),
             'phenotype_distribution': n_per_phenotype,
@@ -723,6 +834,10 @@ def main():
         help='Use NHANES priors'
     )
     parser.add_argument(
+        '--workers', '-w', type=int, default=None,
+        help='Number of parallel workers (default: auto-detect, use 1 for sequential)'
+    )
+    parser.add_argument(
         '--quiet', action='store_true',
         help='Suppress progress output'
     )
@@ -740,6 +855,7 @@ def main():
         seed=args.seed,
         output_dir=output_dir,
         use_nhanes_priors=args.nhanes,
+        n_workers=args.workers,
         verbose=not args.quiet,
     )
 
